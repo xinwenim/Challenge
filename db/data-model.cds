@@ -1,16 +1,17 @@
 namespace challenge;
 
 entity Users {
-  //key dbKey  : UUID    @(Core.Computed: true);
-  ID     : String;
-  name   : String;
-  region : String;
-  email  : String;
-  type   : Association to PersonTypes;
+  key dbKey  : UUID @(Core.Computed: true);
+      ID     : String;
+      name   : String;
+      region : String;
+      email  : String;
+      type   : Association to PersonTypes;
 }
 
 entity Blogs {
   key dbKey     : UUID @(Core.Computed: true);
+      ID        : String;
       title     : String(20);
       content   : LargeString;
       status    : Integer; // 0 open 1 closed
@@ -25,7 +26,8 @@ entity Blogs {
 }
 
 entity Replys {
-  key ID        : UUID @(Core.Computed: true);
+  key dbKey     : UUID @(Core.Computed: true);
+      ID        : String;
       content   : LargeString;
       likes     : Integer;
       dislikes  : Integer;
@@ -36,7 +38,8 @@ entity Replys {
 }
 
 entity Measures {
-  key ID            : UUID @(Core.Computed: true);
+  key dbKey         : UUID @(Core.Computed: true);
+      ID            : String;
       createdAt     : DateTime;
       mind_pressure : Integer;
       mind_sleep    : Integer;
@@ -52,6 +55,6 @@ entity Measures {
 
 entity PersonTypes {
   key ID          : Integer; //类型存成一个数字 0 1 2 3 4...分别对应一个类型
-      type        : String; //intj infj...
+      type        : String; //INTJ INFJ....
       description : String;
 }
