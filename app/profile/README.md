@@ -1,15 +1,15 @@
 ## Application Details
 |               |
 | ------------- |
-|**Generation Date and Time**<br>Sun Jul 16 2023 11:17:57 GMT+0000 (Coordinated Universal Time)|
+|**Generation Date and Time**<br>Tue Jul 25 2023 05:35:53 GMT+0000 (Coordinated Universal Time)|
 |**App Generator**<br>@sap/generator-fiori-freestyle|
-|**App Generator Version**<br>1.10.2|
+|**App Generator Version**<br>1.10.3|
 |**Generation Platform**<br>SAP Business Application Studio|
 |**Template Used**<br>simple|
 |**Service Type**<br>Local Cap|
 |**Service URL**<br>http://localhost:4004/service/challenge/
-|**Module Name**<br>blogs|
-|**Application Title**<br>Blogs|
+|**Module Name**<br>profile|
+|**Application Title**<br>Profile|
 |**Namespace**<br>|
 |**UI5 Theme**<br>sap_horizon|
 |**UI5 Version**<br>1.116.0|
@@ -17,15 +17,15 @@
 |**Enable TypeScript**<br>False|
 |**Add Eslint configuration**<br>False|
 
-## blogs
+## profile
 
-Blogs
+User profile information
 
 ### Starting the generated app
 
 -   This app has been generated using the SAP Fiori tools - App Generator, as part of the SAP Fiori tools suite.  In order to launch the generated app, simply start your CAP project and navigate to the following location in your browser:
 
-http://localhost:4004/blogs/webapp/index.html
+http://localhost:4004/profile/webapp/index.html
 
 #### Pre-requisites:
 

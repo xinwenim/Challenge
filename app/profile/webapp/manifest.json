@@ -1,7 +1,7 @@
 {
   "_version": "1.49.0",
   "sap.app": {
-    "id": "blogs",
+    "id": "profile",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -12,8 +12,8 @@
     "resources": "resources.json",
     "sourceTemplate": {
       "id": "@sap/generator-fiori:basic",
-      "version": "1.10.2",
-      "toolsId": "3f2102a4-4786-4280-84be-d6fe0f5e7290"
+      "version": "1.10.3",
+      "toolsId": "2b4b0859-fc99-4a0a-97e4-63f46eda7ca6"
     },
     "dataSources": {
       "mainService": {
@@ -66,7 +66,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "blogs.i18n.i18n"
+          "bundleName": "profile.i18n.i18n"
         }
       },
       "": {
@@ -92,39 +92,32 @@
         "routerClass": "sap.m.routing.Router",
         "viewType": "XML",
         "async": true,
-        "viewPath": "blogs.view",
+        "viewPath": "profile.view",
         "controlAggregation": "pages",
         "controlId": "app",
         "clearControlAggregation": false
       },
       "routes": [
         {
-          "name": "Blogs",
-          "pattern": "",
-          "target": "Blogs"
-        },
-        {
-					"pattern": "Blogs/{dbKey}",
-					"name": "object",
-					"target": "object"
+          "name": "RouteProfile",
+          "pattern": ":?query:",
+          "target": [
+            "TargetProfile"
+          ]
         }
       ],
       "targets": {
-        "Blogs": {
+        "TargetProfile": {
           "viewType": "XML",
           "transition": "slide",
           "clearControlAggregation": false,
-          "viewId": "Blogs",
-          "viewName": "Blogs"
-        },
-        "object": {
-					"name": "Object",
-					"id": "object"
-				}
+          "viewId": "Profile",
+          "viewName": "Profile"
+        }
       }
     },
     "rootView": {
-      "viewName": "blogs.view.App",
+      "viewName": "profile.view.App",
       "type": "XML",
       "async": true,
       "id": "App"

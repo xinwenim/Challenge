@@ -1,7 +1,7 @@
 {
-    "name": "blogs",
+    "name": "profile",
     "version": "0.0.1",
-    "description": "Blogs",
+    "description": "User profile information",
     "keywords": [
         "ui5",
         "openui5",
