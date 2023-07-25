@@ -1,0 +1,104 @@
+<mvc:View
+    xmlns:smartform="sap.ui.comp.smartform"
+    xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+    xmlns:semantic="sap.f.semantic"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:layout="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.uxap"
+    xmlns:m="sap.m"
+    controllerName="blogs2.controller.Blogs"
+    displayBlock="true"
+>
+    <semantic:SemanticPage>
+        <semantic:titleHeading>
+            <m:Title
+                id="_IDGenTitle6"
+                text="Personal Information"
+            />
+        </semantic:titleHeading>
+        <semantic:headerContent>
+            <layout:ResponsiveFlowLayout id="_IDGenResponsiveFlowLayout1">
+                <layout:VerticalLayout id="_IDGenVerticalLayout1">
+                    <m:Title
+                        id="_IDGenTitle4"
+                        text="General"
+                    />
+                    <m:HBox
+                        id="_IDGenHBox7"
+                        class="sapUiTinyMarginBottom"
+                    >
+                        <m:Text
+                            id="_IDGenText1"
+                            text="Name"
+                            class="sapUiSmallMarginBegin"
+                        />
+                    </m:HBox>
+                    <m:HBox id="_IDGenHBox8">
+                        <m:Text
+                            id="_IDGenText2"
+                            text="test"
+                            class="sapUiSmallMarginBegin"
+                        />
+                    </m:HBox>
+                </layout:VerticalLayout>
+
+                <layout:VerticalLayout id="_IDGenVerticalLayout2">
+                    <m:Title
+                        id="_IDGenTitle5"
+                        text="Interactions"
+                    />
+
+                    <m:HBox
+                        id="_IDGenHBox4"
+                        class="sapUiTinyMarginBottom"
+                    >
+                        <core:Icon
+                            id="_IDGenIcon1"
+                            src="sap-icon://thumb-up"
+                        />
+                        <m:Label
+                            id="_IDGenLabel3"
+                            text="Likes"
+                            class="sapUiSmallMarginBegin"
+                        />
+                    </m:HBox>
+                    <m:HBox
+                        id="_IDGenHBox5"
+                        class="sapUiTinyMarginBottom"
+                    >
+                        <core:Icon
+                            id="_IDGenIcon2"
+                            src="sap-icon://thumb-down"
+                        />
+                        <m:Label
+                            id="_IDGenLink2"
+                            text="Dislikes"
+                            class="sapUiSmallMarginBegin"
+                        />
+                    </m:HBox>
+                    <m:HBox id="_IDGenHBox6">
+                        <core:Icon
+                            id="_IDGenIcon3"
+                            src="sap-icon://favorite-list"
+                        />
+                        <m:Label
+                            id="_IDGenLink3"
+                            text="Reputation"
+                            class="sapUiSmallMarginBegin"
+                        />
+                    </m:HBox>
+                </layout:VerticalLayout>
+            </layout:ResponsiveFlowLayout>
+        </semantic:headerContent>
+        <semantic:content>
+            <smartTable:SmartTable id="table"
+                useTablePersonalisation="true"
+                entitySet="{challengeService.Blogs}"
+                persistencyKey="blogPersistencyKey"
+                useVariantManagement="false"
+            />
+        </semantic:content>
+    </semantic:SemanticPage>
+</mvc:View>
