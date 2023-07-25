@@ -25,6 +25,26 @@ modules:
     build-result: resources
     requires:
     - artifacts:
+      - challenge.zip
+      name: challenge
+      target-path: resources/
+    - artifacts:
+      - blogs.zip
+      name: blogs
+      target-path: resources/
+- name: challenge
+  type: html5
+  path: app/challenge
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: blogs
+  type: html5
+  path: app/blogs
       - profile.zip
       name: profile
       target-path: resources/
