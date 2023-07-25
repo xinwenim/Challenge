@@ -45,6 +45,12 @@ modules:
 - name: blogs
   type: html5
   path: app/blogs
+      - profile.zip
+      name: profile
+      target-path: resources/
+- name: profile
+  type: html5
+  path: app/profile
   build-parameters:
     build-result: dist
     builder: custom

@@ -1,0 +1,20 @@
+<mvc:View controllerName="profile.controller.Profile"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:m="sap.m" xmlns="sap.suite.ui.microchart">
+    <m:GenericTile id="_IDGenGenericTile1" header="Profile"
+		frameType="OneByOne" press="press">
+		<m:tileContent>
+			<m:TileContent id="_IDGenTileContent1" >
+				<m:content>
+					<ColumnMicroChart id="_IDGenColumnMicroChart1" size="Responsive">
+						<columns>
+							<ColumnMicroChartData id="_IDGenColumnMicroChartData1" value="65" color="Error" />
+							<ColumnMicroChartData id="_IDGenColumnMicroChartData2" value="35" color="Neutral" />
+							<ColumnMicroChartData id="_IDGenColumnMicroChartData3" value="65" color="Neutral" />
+						</columns>
+					</ColumnMicroChart>
+				</m:content>
+			</m:TileContent>
+		</m:tileContent>
+	</m:GenericTile>
+</mvc:View>
