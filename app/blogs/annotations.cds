@@ -1,0 +1,1 @@
+using challengeService as service from '../../srv/challenge-service';

@@ -28,9 +28,23 @@ modules:
       - profile.zip
       name: profile
       target-path: resources/
+    - artifacts:
+      - blogs.zip
+      name: blogs
+      target-path: resources/
 - name: profile
   type: html5
   path: app/profile
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: blogs
+  type: html5
+  path: app/blogs
   build-parameters:
     build-result: dist
     builder: custom
