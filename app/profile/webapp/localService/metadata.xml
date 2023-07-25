@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="challengeService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <EntityContainer Name="EntityContainer">
+                <EntitySet Name="Users" EntityType="challengeService.Users">
+                    <NavigationPropertyBinding Path="type" Target="Personalities"/>
+                </EntitySet>
+                <EntitySet Name="Personalities" EntityType="challengeService.Personalities"/>
+                <EntitySet Name="Blogs" EntityType="challengeService.Blogs">
+                    <NavigationPropertyBinding Path="createdBy" Target="Users"/>
+                    <NavigationPropertyBinding Path="replys" Target="Replys"/>
+                </EntitySet>
+                <EntitySet Name="Replys" EntityType="challengeService.Replys">
+                    <NavigationPropertyBinding Path="createdBy" Target="Users"/>
+                    <NavigationPropertyBinding Path="blog" Target="Blogs"/>
+                </EntitySet>
+                <EntitySet Name="Measures" EntityType="challengeService.Measures">
+                    <NavigationPropertyBinding Path="owner" Target="Users"/>
+                </EntitySet>
+            </EntityContainer>
+            <EntityType Name="Users">
+                <Key>
+                    <PropertyRef Name="dbKey"/>
+                </Key>
+                <Property Name="dbKey" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="ID" Type="Edm.String"/>
+                <Property Name="name" Type="Edm.String"/>
+                <Property Name="region" Type="Edm.String"/>
+                <Property Name="email" Type="Edm.String"/>
+                <NavigationProperty Name="type" Type="challengeService.Personalities">
+                    <ReferentialConstraint Property="type_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="type_ID" Type="Edm.Int32"/>
+            </EntityType>
+            <EntityType Name="Personalities">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="type" Type="Edm.String"/>
+                <Property Name="description" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="Blogs">
+                <Key>
+                    <PropertyRef Name="dbKey"/>
+                </Key>
+                <Property Name="dbKey" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="ID" Type="Edm.String"/>
+                <Property Name="title" Type="Edm.String" MaxLength="20"/>
+                <Property Name="content" Type="Edm.String"/>
+                <Property Name="status" Type="Edm.Int32"/>
+                <Property Name="likes" Type="Edm.Int32"/>
+                <Property Name="dislikes" Type="Edm.Int32"/>
+                <Property Name="favorites" Type="Edm.Int32"/>
+                <Property Name="createdAt" Type="Edm.DateTimeOffset"/>
+                <NavigationProperty Name="createdBy" Type="challengeService.Users">
+                    <ReferentialConstraint Property="createdBy_dbKey" ReferencedProperty="dbKey"/>
+                </NavigationProperty>
+                <Property Name="createdBy_dbKey" Type="Edm.Guid"/>
+                <Property Name="Anonymous" Type="Edm.Boolean"/>
+                <NavigationProperty Name="replys" Type="Collection(challengeService.Replys)" Partner="blog"/>
+            </EntityType>
+            <EntityType Name="Replys">
+                <Key>
+                    <PropertyRef Name="dbKey"/>
+                </Key>
+                <Property Name="dbKey" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="ID" Type="Edm.String"/>
+                <Property Name="content" Type="Edm.String"/>
+                <Property Name="likes" Type="Edm.Int32"/>
+                <Property Name="dislikes" Type="Edm.Int32"/>
+                <Property Name="deleted" Type="Edm.Boolean"/>
+                <Property Name="createdAt" Type="Edm.DateTimeOffset"/>
+                <NavigationProperty Name="createdBy" Type="challengeService.Users">
+                    <ReferentialConstraint Property="createdBy_dbKey" ReferencedProperty="dbKey"/>
+                </NavigationProperty>
+                <Property Name="createdBy_dbKey" Type="Edm.Guid"/>
+                <NavigationProperty Name="blog" Type="challengeService.Blogs" Partner="replys">
+                    <ReferentialConstraint Property="blog_dbKey" ReferencedProperty="dbKey"/>
+                </NavigationProperty>
+                <Property Name="blog_dbKey" Type="Edm.Guid"/>
+            </EntityType>
+            <EntityType Name="Measures">
+                <Key>
+                    <PropertyRef Name="dbKey"/>
+                </Key>
+                <Property Name="dbKey" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="ID" Type="Edm.String"/>
+                <Property Name="createdAt" Type="Edm.DateTimeOffset"/>
+                <Property Name="mind_pressure" Type="Edm.Int32"/>
+                <Property Name="mind_sleep" Type="Edm.Int32"/>
+                <Property Name="mind_mood" Type="Edm.Int32"/>
+                <Property Name="sports_time" Type="Edm.Int32"/>
+                <Property Name="sports_height" Type="Edm.Decimal" Scale="variable"/>
+                <Property Name="sports_weight" Type="Edm.Decimal" Scale="variable"/>
+                <Property Name="food_junkfood" Type="Edm.Boolean"/>
+                <Property Name="food_fruits" Type="Edm.Boolean"/>
+                <Property Name="food_water" Type="Edm.Boolean"/>
+                <NavigationProperty Name="owner" Type="challengeService.Users">
+                    <ReferentialConstraint Property="owner_dbKey" ReferencedProperty="dbKey"/>
+                </NavigationProperty>
+                <Property Name="owner_dbKey" Type="Edm.Guid"/>
+            </EntityType>
+            <Annotations Target="challengeService.Users/dbKey">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="challengeService.Blogs/dbKey">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="challengeService.Replys/dbKey">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+            <Annotations Target="challengeService.Measures/dbKey">
+                <Annotation Term="Core.Computed" Bool="true"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

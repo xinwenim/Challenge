@@ -1,0 +1,5 @@
+<mvc:View controllerName="profile.controller.Profiledetail"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:m="sap.m" >
+
+</mvc:View>
