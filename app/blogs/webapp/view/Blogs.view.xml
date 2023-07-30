@@ -96,38 +96,89 @@
                 id="idProductsTable"
                 items="{/Blogs}"
             >
+                <m:headerToolbar>
+                    <m:OverflowToolbar>
+                        <m:Title
+                            text="Blogs"
+                            level="H2"
+                        />
+                        <m:ToolbarSpacer />
+                        <m:Button
+                            icon="sap-icon://add"
+                            press="onOpenDialog"
+                        />
+                    </m:OverflowToolbar>
+                </m:headerToolbar>
                 <m:columns>
                     <m:Column id="_IDGenColumn1">
-                        <m:Text id="_IDGenText3" text="ID" />
+                        <m:Text
+                            id="_IDGenText3"
+                            text="ID"
+                        />
                     </m:Column>
                     <m:Column id="_IDGenColumn2">
-                        <m:Text id="_IDGenText4" text="Title" />
+                        <m:Text
+                            id="_IDGenText4"
+                            text="Title"
+                        />
                     </m:Column>
-                    <m:Column id="_IDGenColumn3" >
-                        <m:Text id="_IDGenText5" text="Likes" />
+                    <m:Column id="_IDGenColumn3">
+                        <m:Text
+                            id="_IDGenText5"
+                            text="Likes"
+                        />
                     </m:Column>
-                    <m:Column id="_IDGenColumn6" >
-                        <m:Text id="_IDGenText13" text="Dislikes" />
+                    <m:Column id="_IDGenColumn6">
+                        <m:Text
+                            id="_IDGenText13"
+                            text="Dislikes"
+                        />
                     </m:Column>
-                    <m:Column id="_IDGenColumn4" >
-                        <m:Text id="_IDGenText6" text="Favorites" />
+                    <m:Column id="_IDGenColumn4">
+                        <m:Text
+                            id="_IDGenText6"
+                            text="Favorites"
+                        />
                     </m:Column>
                     <m:Column id="_IDGenColumn5">
-                        <m:Text id="_IDGenText7" text="Created By" />
+                        <m:Text
+                            id="_IDGenText7"
+                            text="Created By"
+                        />
                     </m:Column>
                 </m:columns>
                 <m:items>
-                    <m:ColumnListItem id="_IDGenColumnListItem1" type="Navigation" press=".onListItemPressed">
+                    <m:ColumnListItem
+                        id="_IDGenColumnListItem1"
+                        type="Navigation"
+                        press=".onListItemPressed"
+                    >
                         <m:cells>
-                            <m:ObjectIdentifier id="_IDGenObjectIdentifier1"
+                            <m:ObjectIdentifier
+                                id="_IDGenObjectIdentifier1"
                                 title="{ID}"
                                 text="{content}"
                             />
-                            <m:Text id="_IDGenText8" text="{title}" />
-                            <m:Text id="_IDGenText9" text="{likes}" />
-                            <m:Text id="_IDGenText12" text="{dislikes}" />
-                            <m:Text id="_IDGenText10" text="{favorites}" />
-                            <m:Text id="_IDGenText11" text="{createdBy}" />
+                            <m:Text
+                                id="_IDGenText8"
+                                text="{title}"
+                            />
+                            <m:Text
+                                id="_IDGenText9"
+                                text="{likes}"
+                            />
+                            <m:Text
+                                id="_IDGenText12"
+                                text="{dislikes}"
+                            />
+                            <m:Text
+                                id="_IDGenText10"
+                                text="{favorites}"
+                            />
+                            <m:Text
+                                id="_IDGenText11"
+                                text="{createdBy}"
+                            />
                         </m:cells>
                     </m:ColumnListItem>
                 </m:items>
