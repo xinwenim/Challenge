@@ -99,20 +99,29 @@
       },
       "routes": [
         {
-          "name": "RouteBlogs",
-          "pattern": ":?query:",
-          "target": [
-            "TargetBlogs"
-          ]
+          "name": "Blogs",
+          "pattern": "",
+          "target": "Blogs"
+        },
+        {
+          "name": "Detail",
+          "pattern": "Blogs/{dbKey}",
+          "target": "Detail"
         }
+
       ],
       "targets": {
-        "TargetBlogs": {
+        "Blogs": {
           "viewType": "XML",
-          "transition": "slide",
-          "clearControlAggregation": false,
           "viewId": "Blogs",
-          "viewName": "Blogs"
+          "viewName": "Blogs",
+          "level":1
+        },
+        "Detail": {
+          "viewType": "XML",
+          "viewId": "Detail",
+          "viewName": "Detail",
+          "level":2
         }
       }
     },

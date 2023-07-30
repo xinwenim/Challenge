@@ -14,23 +14,40 @@ sap.ui.define([
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, JSONModel, Engine,SelectionController, SortController, GroupController,MetadataHelper,Sorter,ColumnListItem,UIComponent) {
+    function (Controller, JSONModel, Engine, SelectionController, SortController, GroupController, MetadataHelper, Sorter, ColumnListItem, UIComponent) {
         "use strict";
         return Controller.extend("blogs.controller.Blogs", {
             onInit: function () {
-                var odataModel = new sap.ui.model.odata.v4.ODataModel({ serviceUrl: '/service/challenge/' });
-                this.getView().setModel(odataModel);
-                this._registerForP13n();
+                // var odataModel = new sap.ui.model.odata.v4.ODataModel({ serviceUrl: '/service/challenge/' });
+                // this.getView().setModel(odataModel);
+                // this._registerForP13n();
             },
-            _registerForP13n: function() {
+
+            getRouter : function () {
+                return UIComponent.getRouterFor(this);
+            },
+
+            onListItemPressed: function (oEvent) {
+                console.log(1);
+                var oItem, oCtx;
+
+                oItem = oEvent.getSource();
+                oCtx = oItem.getBindingContext();
+
+                this.getRouter().navTo("Detail", {
+                    dbKey: oCtx.getProperty("dbKey")
+                });
+            },
+
+            _registerForP13n: function () {
                 var oTable = this.byId("idBlogsTable");
-    
+
                 this.oMetadataHelper = new MetadataHelper([
-                    {key: "title", label: "title", path: "title"},
-                    {key: "ID", label: "ID", path: "ID"},
-                    {key:"dbKey", label:"dbKey",path:"dbKey"}
+                    { key: "title", label: "title", path: "title" },
+                    { key: "ID", label: "ID", path: "ID" },
+                    { key: "dbKey", label: "dbKey", path: "dbKey" }
                 ]);
-    
+
                 Engine.getInstance().register(oTable, {
                     helper: this.oMetadataHelper,
                     controller: {
@@ -47,7 +64,7 @@ sap.ui.define([
                     }
                 });
                 Engine.getInstance().attachStateChange(this.handleStateChange.bind(this));
-            }, 
+            },
             openPersoDialog: function (oEvt) {
                 var oTable = this.byId("idBlogsTable");
                 Engine.getInstance().show(oTable, ["Columns", "Sorter", "Groups"], {
@@ -56,52 +73,52 @@ sap.ui.define([
                     source: oEvt.getSource()
                 });
             },
-            _getKey: function(oControl) {
+            _getKey: function (oControl) {
                 return this.getView().getLocalId(oControl.getId());
             },
-    
-            handleStateChange: function(oEvt) {
+
+            handleStateChange: function (oEvt) {
                 var oTable = this.byId("idBlogsTable");
                 var oState = oEvt.getParameter("state");
-    
+
                 if (!oState) {
                     return;
                 }
-    
+
                 var aSorter = [];
-                oState.Sorter.forEach(function(oSorter) {
+                oState.Sorter.forEach(function (oSorter) {
                     aSorter.push(new Sorter(this.oMetadataHelper.getProperty(oSorter.key).path, oSorter.descending));
                 });
-    
-                oState.Groups.forEach(function(oGroup) {
-                    var oExistingSorter = aSorter.find(function(oSorter){
+
+                oState.Groups.forEach(function (oGroup) {
+                    var oExistingSorter = aSorter.find(function (oSorter) {
                         return oSorter.sPath === oGroup.key;
                     });
-    
+
                     if (oExistingSorter) {
                         oExistingSorter.vGroup = true;
                     } else {
                         aSorter.push(new Sorter(this.oMetadataHelper.getProperty(oGroup.key).path, false, true));
                     }
                 }.bind(this));
-    
-                oTable.getColumns().forEach(function(oColumn, iIndex){
+
+                oTable.getColumns().forEach(function (oColumn, iIndex) {
                     oColumn.setVisible(false);
                 });
-    
-                oState.Columns.forEach(function(oProp, iIndex){
+
+                oState.Columns.forEach(function (oProp, iIndex) {
                     var oCol = this.byId(oProp.key);
                     oCol.setVisible(true);
-    
+
                     oTable.removeColumn(oCol);
                     oTable.insertColumn(oCol, iIndex);
                 }.bind(this));
-                var aCells = oState.Columns.map(function(oColumnState) {
+                var aCells = oState.Columns.map(function (oColumnState) {
                     return new Text({
                         text: "{" + oColumnState.key + "}"
                     });
                 });
-    
+
                 oTable.bindItems({
                     templateShareable: false,
                     path: '/Blogs',
@@ -111,10 +128,10 @@ sap.ui.define([
                     })
                 });
             },
-            onItemPress:function (oEvent) {
+            onItemPress: function (oEvent) {
                 this._showObject(oEvent.getSource());
             },
-            _showObject:function (oItem) {
+            _showObject: function (oItem) {
                 var oRouter = this.getOwnerComponent().getRouter();
                 oRouter.navTo("object", {
                     dbKey: oItem.getBindingContext().getProperty("dbKey")
