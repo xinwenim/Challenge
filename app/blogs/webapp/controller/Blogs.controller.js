@@ -9,12 +9,13 @@ sap.ui.define([
     'sap/m/p13n/MetadataHelper',
     'sap/ui/model/Sorter',
     'sap/m/ColumnListItem',
-    "sap/ui/core/UIComponent"
+    "sap/ui/core/UIComponent",
+    "sap/ui/core/Fragment"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, JSONModel, Engine, SelectionController, SortController, GroupController, MetadataHelper, Sorter, ColumnListItem, UIComponent) {
+    function (Controller, JSONModel, Engine, SelectionController, SortController, GroupController, MetadataHelper, Sorter, ColumnListItem, UIComponent, Fragment) {
         "use strict";
         return Controller.extend("blogs.controller.Blogs", {
             onInit: function () {
@@ -23,7 +24,7 @@ sap.ui.define([
                 // this._registerForP13n();
             },
 
-            getRouter : function () {
+            getRouter: function () {
                 return UIComponent.getRouterFor(this);
             },
 
@@ -36,6 +37,47 @@ sap.ui.define([
 
                 this.getRouter().navTo("Detail", {
                     dbKey: oCtx.getProperty("dbKey")
+                });
+            },
+
+
+            onOpenDialog: function () {
+                // create dialog lazily
+                if (!this.pDialog) {
+                    this.pDialog = this.loadFragment({
+                        name: "blogs.view.fragment.createBlog"
+                    });
+                }
+
+                this.pDialog.then(function (oDialog) {
+                    oDialog.open();
+                });
+            },
+
+            onDialogCancelPress: function () {
+                this.byId("createBlogDialog").close();
+            },
+
+            onDialogOkPress: function () {
+                // const dialog = this.byId("dialog");
+                // const isInput = control => control.isA("sap.m.InputBase");
+                // const inputs = dialog.getControlsByFieldGroupId("inputs").filter(isInput);
+                // const invalidInput = inputs.find(c => c.getValueState() == "Error");
+                // if (invalidInput) {
+                //     invalidInput.focus();
+                // } else {
+                // const connid = dialog.getBindingContext("odata").getProperty("dbKey");
+                // this.getView().getModel("odata").submitChanges({
+                //     groupId: "addingFlight",
+                //     success: this.onCreateSuccess.bind(this, connid),
+                // });
+                // }
+
+                var that = this;
+                this.getView().getModel().submitBatch("SalesOrderUpdateGroup").then(function () {
+                    if (!that.byId("mySimpleForm").getBindingContext().getBinding().hasPendingChanges()) {
+                        // raise success message
+                    }
                 });
             },
 
