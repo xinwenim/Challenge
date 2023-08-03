@@ -108,20 +108,19 @@
           "pattern": "Blogs/{dbKey}",
           "target": "Detail"
         }
-
       ],
       "targets": {
         "Blogs": {
           "viewType": "XML",
           "viewId": "Blogs",
           "viewName": "Blogs",
-          "level":1
+          "level": 1
         },
         "Detail": {
           "viewType": "XML",
           "viewId": "Detail",
           "viewName": "Detail",
-          "level":2
+          "level": 2
         }
       }
     },

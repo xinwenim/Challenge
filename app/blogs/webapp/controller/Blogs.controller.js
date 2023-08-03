@@ -10,12 +10,13 @@ sap.ui.define([
     'sap/ui/model/Sorter',
     'sap/m/ColumnListItem',
     "sap/ui/core/UIComponent",
-    "sap/ui/core/Fragment"
+    "sap/ui/core/Fragment",
+    "sap/m/MessageToast"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, JSONModel, Engine, SelectionController, SortController, GroupController, MetadataHelper, Sorter, ColumnListItem, UIComponent, Fragment) {
+    function (Controller, JSONModel, Engine, SelectionController, SortController, GroupController, MetadataHelper, Sorter, ColumnListItem, UIComponent, Fragment, MessageToast) {
         "use strict";
         return Controller.extend("blogs.controller.Blogs", {
             onInit: function () {
@@ -29,7 +30,6 @@ sap.ui.define([
             },
 
             onListItemPressed: function (oEvent) {
-                console.log(1);
                 var oItem, oCtx;
 
                 oItem = oEvent.getSource();
@@ -58,27 +58,64 @@ sap.ui.define([
                 this.byId("createBlogDialog").close();
             },
 
-            onDialogOkPress: function () {
-                // const dialog = this.byId("dialog");
-                // const isInput = control => control.isA("sap.m.InputBase");
-                // const inputs = dialog.getControlsByFieldGroupId("inputs").filter(isInput);
-                // const invalidInput = inputs.find(c => c.getValueState() == "Error");
-                // if (invalidInput) {
-                //     invalidInput.focus();
-                // } else {
-                // const connid = dialog.getBindingContext("odata").getProperty("dbKey");
-                // this.getView().getModel("odata").submitChanges({
-                //     groupId: "addingFlight",
-                //     success: this.onCreateSuccess.bind(this, connid),
-                // });
-                // }
+            onDialogOkPress: function (oEvent) {
 
-                var that = this;
-                this.getView().getModel().submitBatch("SalesOrderUpdateGroup").then(function () {
-                    if (!that.byId("mySimpleForm").getBindingContext().getBinding().hasPendingChanges()) {
-                        // raise success message
+                var oBinding = this.byId("creationform").getModel().bindList("/Blogs");
+
+                //this odata contains data for the created new entry in JSON format
+                var oData = {
+                    ID: this._getIDforNewEntry(),
+                    title: this.getView().byId("titleInput").getValue(),
+                    content: this.getView().byId("contentInput").getValue(),
+                    Anonymous: this._getAnonymous()
+                };
+
+                var fnSuccess = function () {
+                    this.getView().getModel().refresh();
+                    this.byId("createBlogDialog").destroy();
+                    MessageToast.show("New Blog Created");
+                }.bind(this);
+
+
+                oBinding.create(oData);
+                // this.getView().getModel().submitBatch(this.getView().getModel().getUpdateGroupId()).then(fnSuccess);
+                oBinding.getModel().submitBatch(this.getView().getModel().getUpdateGroupId()).then(fnSuccess);
+
+                // oBinding.getModel().submitBatch({
+                //     success: jQuery.proxy(function (oData) {
+                //         oDataModel.refresh();
+                //         MessageUtil.showMsg("msgTypeSuccessful");
+                //     }, this),
+                //     error: jQuery.proxy(function (oError) {
+                //         MessageUtil.showMsg("msgTypeFailed");
+                //     }, this)
+                // });
+            },
+
+            _getIDforNewEntry: function () {
+                var oItems = this.getView().byId("idBlogsTable").getItems();
+                var oItem = oItems[oItems.length - 1];
+                if (!oItem) {
+                    var newID = "0001";
+                }
+                else {
+                    var lastID = oItem.getCells()[0].getProperty('title');
+                    var newID = (parseInt(lastID) + 1).toString();
+                    for (var i = newID.length; i < 4; i++) {
+                        newID = "0" + newID;
                     }
-                });
+                }
+                return newID;
+            },
+
+            _getAnonymous: function () {
+                var ana = this.getView().byId("checkBox").getSelected();
+                if (ana == true) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
             },
 
             _registerForP13n: function () {

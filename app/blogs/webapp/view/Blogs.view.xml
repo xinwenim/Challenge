@@ -93,8 +93,8 @@
 
         <semantic:content>
             <m:Table
-                id="idProductsTable"
-                items="{/Blogs}"
+                id="idBlogsTable"
+                items="{ path:'/Blogs',sorter: {path: 'ID'}}"
             >
                 <m:headerToolbar>
                     <m:OverflowToolbar>
