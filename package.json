@@ -12,7 +12,7 @@
     "devDependencies": {
         "@sap/ux-specification": "^1.108.10",
         "rimraf": "^3.0.2",
-        "sqlite3": "^5"
+        "sqlite3": "^5.1.6"
     },
     "scripts": {
         "start": "cds-serve",
@@ -21,5 +21,16 @@
         "build": "rimraf resources mta_archives && mbt build --mtar archive",
         "deploy": "cf deploy mta_archives/archive.mtar --retries 1",
         "watch-blogs": "cds watch --open blogs/webapp/index.html?sap-ui-xx-viewCache=false"
+    },
+    "cds":{
+        "requires": {
+            "db":{
+                "kind":"sqlite",
+                "model":"*",
+                "credentials": {
+                    "database": "challenge.db"
+                }
+            }
+        }
     }
 }

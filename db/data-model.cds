@@ -14,10 +14,10 @@ entity Blogs {
       ID        : String;
       title     : String(20);
       content   : LargeString;
-      status    : Integer; // 0 open 1 closed
-      likes     : Integer;
-      dislikes  : Integer;
-      favorites : Integer;
+      status    : Integer default 0; // 0 open 1 closed
+      likes     : Integer default 0; 
+      dislikes  : Integer default 0;
+      favorites : Integer default 0;
       createdAt : DateTime;
       createdBy : Association to Users;
       Anonymous : Boolean; // 0: yes 1:no
