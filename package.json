@@ -28,7 +28,7 @@
                 "kind":"sqlite",
                 "model":"*",
                 "credentials": {
-                    "database": "challenge.db"
+                    "database": "challenge.sqlite"
                 }
             }
         }
