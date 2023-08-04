@@ -54,6 +54,23 @@ sap.ui.define([
                 });
             },
 
+
+            //delete a blog when create user matches
+            onDeleteBlog:function () {
+                var oTable = this.getView().byId("idBlogsTable");
+                var oContext = oTable.getSelectedItem().getBindingContext();
+                var oPage = this.getView();
+                var fnSuccess = function () {
+                    this.getView().getModel().refresh();
+                    MessageToast.show("Blog deleted");
+                }.bind(this);
+                if (oPage.getBindingContext() === oContext) {
+                    oPage.setBindingContext(null);
+                }  
+                oContext.delete();
+                oContext.getModel().submitBatch(this.getView().getModel().getUpdateGroupId()).then(fnSuccess);
+            },
+
             onDialogCancelPress: function () {
                 this.byId("createBlogDialog").close();
             },
@@ -80,16 +97,6 @@ sap.ui.define([
                 oBinding.create(oData);
                 // this.getView().getModel().submitBatch(this.getView().getModel().getUpdateGroupId()).then(fnSuccess);
                 oBinding.getModel().submitBatch(this.getView().getModel().getUpdateGroupId()).then(fnSuccess);
-
-                // oBinding.getModel().submitBatch({
-                //     success: jQuery.proxy(function (oData) {
-                //         oDataModel.refresh();
-                //         MessageUtil.showMsg("msgTypeSuccessful");
-                //     }, this),
-                //     error: jQuery.proxy(function (oError) {
-                //         MessageUtil.showMsg("msgTypeFailed");
-                //     }, this)
-                // });
             },
 
             _getIDforNewEntry: function () {

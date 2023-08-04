@@ -93,7 +93,8 @@
 
         <semantic:content>
             <m:Table
-                id="idBlogsTable"
+                mode="SingleSelectLeft"
+                id="idBlogsTable"    
                 items="{ path:'/Blogs',sorter: {path: 'ID'}}"
             >
                 <m:headerToolbar>
@@ -106,6 +107,10 @@
                         <m:Button
                             icon="sap-icon://add"
                             press="onOpenDialog"
+                        />
+                        <m:Button
+                            icon="sap-icon://delete"
+                            press="onDeleteBlog"
                         />
                     </m:OverflowToolbar>
                 </m:headerToolbar>
