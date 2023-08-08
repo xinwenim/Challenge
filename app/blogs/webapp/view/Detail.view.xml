@@ -1,13 +1,10 @@
 <mvc:View
-    xmlns:smartform="sap.ui.comp.smartform"
-    xmlns:smartTable="sap.ui.comp.smarttable"
-    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
-    xmlns:semantic="sap.f.semantic"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:layout="sap.ui.layout"
     xmlns:core="sap.ui.core"
     xmlns:m="sap.m"
     xmlns="sap.uxap"
+    xmlns:f="sap.ui.layout.form"
     controllerName="blogs.controller.Detail"
     displayBlock="true"
 >
@@ -25,54 +22,107 @@
             upperCaseAnchorBar="false"
         >
             <headerTitle>
-                <ObjectPageDynamicHeaderTitle>
+                <ObjectPageDynamicHeaderTitle
+                    id="_IDGenObjectPageDynamicHeaderTitle1"
+                >
                     <expandedHeading>
                         <m:Title
+                            id="_IDGenTitle1"
                             text="{title}"
                             wrapping="true"
                         />
                     </expandedHeading>
                     <actions>
-                        <layout:VerticalLayout>
+                        <layout:VerticalLayout id="_IDGenVerticalLayout1">
                             <m:Button
                                 id="likeBtn"
                                 icon="sap-icon://thumb-up"
                                 tooltip="Like It"
                                 press="onLikeBtnPress"
                             />
-                            <m:Label width="0.5cm" design="Bold" textAlign="End" text="{likes}" />
+                            <m:Label
+                                id="_IDGenLabel1"
+                                width="0.5cm"
+                                design="Bold"
+                                textAlign="End"
+                                text="{likes}"
+                            />
                         </layout:VerticalLayout>
-                        <layout:VerticalLayout>
+                        <layout:VerticalLayout id="_IDGenVerticalLayout2">
                             <m:Button
+                                id="disLikeBtn"
                                 icon="sap-icon://thumb-down"
-                                type="Emphasized"
                                 tooltip="Not Like It"
                                 press="onDisBtnPress"
                             />
-                            <m:Label width="0.5cm" design="Bold" textAlign="End" text="{dislikes}" />
+                            <m:Label
+                                id="_IDGenLabel2"
+                                width="0.5cm"
+                                design="Bold"
+                                textAlign="End"
+                                text="{dislikes}"
+                            />
                         </layout:VerticalLayout>
-                       <layout:VerticalLayout>
+                        <layout:VerticalLayout id="_IDGenVerticalLayout3">
                             <m:Button
+                                id="btnFav"
                                 icon="sap-icon://favorite"
-                                type="Emphasized"
                                 tooltip="Favorite"
                                 press="onFavBtnPress"
                             />
-                            <m:Label width="0.5cm" design="Bold" textAlign="End" text="{favorites}" />
+                            <m:Label
+                                id="_IDGenLabel3"
+                                width="0.5cm"
+                                design="Bold"
+                                textAlign="End"
+                                text="{favorites}"
+                            />
                         </layout:VerticalLayout>
                     </actions>
                 </ObjectPageDynamicHeaderTitle>
             </headerTitle>
 
             <headerContent>
-                <m:TextArea
-                    editable="false"
-                    id="text0"
-                    height="3cm"
-                    width="30cm"
-                    value="{content}"
-                />
+                <layout:VerticalLayout>
+                    <m:TextArea
+                        editable="false"
+                        id="text0"
+                        height="3cm"
+                        width="30cm"
+                        value="{content}"
+                    />
+                    <m:Label width="30cm" text="{createdBy/name}, At {createdAt} " textAlign="End" />
+                </layout:VerticalLayout>
             </headerContent>
+            <sections>
+                <ObjectPageSection
+                    id="_IDGenObjectPageSection1"
+                    titleUppercase="false"
+                    title="Replys"
+                >
+                    <subSections>
+                        <ObjectPageSubSection id="_IDGenObjectPageSubSection1">
+                            <f:SimpleForm
+                                id="_IDGenSimpleForm1"
+                                editable="true"
+                                layout="ResponsiveLayout"
+                            >
+                                <f:content>
+                                    <m:TextArea
+                                        id="_IDGenTextArea1"
+                                        value="test"
+                                        editable="false"
+                                    />
+                                    <m:Label
+                                        id="_IDGenLabel4"
+                                        text="Created By  At "
+                                    />
+                                </f:content>
+                            </f:SimpleForm>
+                        </ObjectPageSubSection>
+                    </subSections>
+                </ObjectPageSection>
+            </sections>
         </ObjectPageLayout>
     </m:Page>
 </mvc:View>

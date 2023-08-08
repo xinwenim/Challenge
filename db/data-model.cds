@@ -1,7 +1,7 @@
 namespace challenge;
 
 entity Users {
-  key dbKey  : UUID @(Core.Computed: true);
+  key dbKey  : UUID @(Core.Computed: true)  @odata.Type:'Edm.String';
       ID     : String;
       name   : String;
       region : String;
@@ -18,7 +18,7 @@ entity Blogs {
       likes     : Integer default 0; 
       dislikes  : Integer default 0;
       favorites : Integer default 0;
-      createdAt : DateTime;
+      createdAt : Date;
       createdBy : Association to Users;
       Anonymous : Boolean; // 0: yes 1:no
       replys    : Association to many Replys

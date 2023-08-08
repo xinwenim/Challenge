@@ -13,6 +13,8 @@ sap.ui.define([
         return Controller.extend("blogs.controller.Detail", {
             onInit: function () {
                 var likedFlag = false;
+                var disLikedFlag = false;
+                var favFlag = false;
                 var oRouter = this.getRouter();
 
                 oRouter.getRoute("Detail").attachMatched(this._onRouteMatched, this);
@@ -80,6 +82,50 @@ sap.ui.define([
                     this.likedFlag = true;
                     sMessage = "Like it ♥!";
                     this.byId("likeBtn").setProperty("type", "Emphasized");
+                }
+                oContext.getModel().submitBatch(this.getView().getModel().getUpdateGroupId()).then(fnSuccess);
+            },
+
+            onDisBtnPress: function (oEvent) {
+                var oContext = oEvent.getSource().getBindingContext();
+                var sMessage = "";
+                var fnSuccess = function () {
+                    this.getView().getModel().refresh();
+                    MessageToast.show(sMessage);
+                }.bind(this);
+                if (this.disLikedFlag == true) {
+                    oContext.setProperty("dislikes", oContext.getProperty("dislikes") - 1);
+                    this.disLikedFlag = false;
+                    sMessage = "Cancel Dislike";
+                    this.byId("disLikeBtn").setProperty("type", "Default");
+                }
+                else {
+                    oContext.setProperty("dislikes", oContext.getProperty("dislikes") + 1);
+                    this.disLikedFlag = true;
+                    sMessage = "Dislike It";
+                    this.byId("disLikeBtn").setProperty("type", "Emphasized");
+                }
+                oContext.getModel().submitBatch(this.getView().getModel().getUpdateGroupId()).then(fnSuccess);
+            },
+
+            onFavBtnPress: function (oEvent) {
+                var oContext = oEvent.getSource().getBindingContext();
+                var sMessage = "";
+                var fnSuccess = function () {
+                    this.getView().getModel().refresh();
+                    MessageToast.show(sMessage);
+                }.bind(this);
+                if (this.favFlag == true) {
+                    oContext.setProperty("favorites", oContext.getProperty("favorites") - 1);
+                    this.favFlag = false;
+                    sMessage = "Rmove from favorites";
+                    this.byId("btnFav").setProperty("type", "Default");
+                }
+                else {
+                    oContext.setProperty("favorites", oContext.getProperty("favorites") + 1);
+                    this.favFlag = true;
+                    sMessage = "Add to favorites";
+                    this.byId("btnFav").setProperty("type", "Emphasized");
                 }
                 oContext.getModel().submitBatch(this.getView().getModel().getUpdateGroupId()).then(fnSuccess);
             },
