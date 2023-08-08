@@ -24,21 +24,46 @@
                     <m:Title
                         id="_IDGenTitle4"
                         text="General"
+                        class="sapUiSmallMarginBottom"
                     />
                     <m:HBox
                         id="_IDGenHBox7"
-                        class="sapUiTinyMarginBottom"
+                        class="sapUiSmallMarginBottom"
                     >
+                        <m:Label
+                            text="Name "
+                            design="Bold"
+                            width="1.3cm"
+                            class="sapUiSmallMarginBegin"
+                        />
                         <m:Text
-                            id="_IDGenText1"
-                            text="Name"
+                            id="textName"
+                            text="WENXIN"
                             class="sapUiSmallMarginBegin"
                         />
                     </m:HBox>
-                    <m:HBox id="_IDGenHBox8">
+                    <m:HBox id="textRegion" class="sapUiSmallMarginBottom">
+                        <m:Label
+                            design="Bold"
+                            text="Region"
+                            width="1.3cm"
+                            class="sapUiSmallMarginBegin"
+                        />
+                        <m:Text
+                            text="GC"
+                            class="sapUiSmallMarginBegin"
+                        />
+                    </m:HBox>
+                    <m:HBox id="textEmail">
+                        <m:Label
+                            design="Bold"
+                            text="Email"
+                            width="1.3cm"
+                            class="sapUiSmallMarginBegin"
+                        />
                         <m:Text
                             id="_IDGenText2"
-                            text="test"
+                            text="lana.wen@sap.com"
                             class="sapUiSmallMarginBegin"
                         />
                     </m:HBox>
@@ -47,16 +72,18 @@
                     <m:Title
                         id="_IDGenTitle5"
                         text="Interactions"
+                        class="sapUiSmallMarginBottom"
                     />
                     <m:HBox
                         id="_IDGenHBox4"
-                        class="sapUiTinyMarginBottom"
+                        class="sapUiSmallMarginBottom"
                     >
                         <core:Icon
                             id="_IDGenIcon1"
                             src="sap-icon://thumb-up"
                         />
                         <m:Label
+                            design="Bold"
                             id="_IDGenLabel3"
                             text="Likes"
                             class="sapUiSmallMarginBegin"
@@ -64,7 +91,7 @@
                     </m:HBox>
                     <m:HBox
                         id="_IDGenHBox5"
-                        class="sapUiTinyMarginBottom"
+                        class="sapUiSmallMarginBottom"
                     >
                         <core:Icon
                             id="_IDGenIcon2"
@@ -73,6 +100,7 @@
                         <m:Label
                             id="_IDGenLink2"
                             text="Dislikes"
+                            design="Bold"
                             class="sapUiSmallMarginBegin"
                         />
                     </m:HBox>
@@ -84,6 +112,7 @@
                         <m:Label
                             id="_IDGenLink3"
                             text="Reputation"
+                            design="Bold"
                             class="sapUiSmallMarginBegin"
                         />
                     </m:HBox>
@@ -92,102 +121,134 @@
         </semantic:headerContent>
 
         <semantic:content>
-            <m:Table
-                mode="SingleSelectLeft"
-                id="idBlogsTable"    
-                items="{ path:'/Blogs',sorter: {path: 'ID'}}"
+            <m:IconTabBar
+                id="idIconTabBar"
+                select=".onFilterSelect"
+                class="sapUiResponsivePadding--header sapUiResponsivePadding--content"
             >
-                <m:headerToolbar>
-                    <m:OverflowToolbar>
-                        <m:Title
-                            text="Blogs"
-                            level="H2"
-                        />
-                        <m:ToolbarSpacer />
-                        <m:Button
-                            icon="sap-icon://add"
-                            press="onOpenDialog"
-                        />
-                        <m:Button
-                            icon="sap-icon://delete"
-                            press="onDeleteBlog"
-                        />
-                    </m:OverflowToolbar>
-                </m:headerToolbar>
-                <m:columns>
-                    <m:Column id="_IDGenColumn1">
-                        <m:Text
-                            id="_IDGenText3"
-                            text="ID"
-                        />
-                    </m:Column>
-                    <m:Column id="_IDGenColumn2">
-                        <m:Text
-                            id="_IDGenText4"
-                            text="Title"
-                        />
-                    </m:Column>
-                    <m:Column id="_IDGenColumn3">
-                        <m:Text
-                            id="_IDGenText5"
-                            text="Likes"
-                        />
-                    </m:Column>
-                    <m:Column id="_IDGenColumn6">
-                        <m:Text
-                            id="_IDGenText13"
-                            text="Dislikes"
-                        />
-                    </m:Column>
-                    <m:Column id="_IDGenColumn4">
-                        <m:Text
-                            id="_IDGenText6"
-                            text="Favorites"
-                        />
-                    </m:Column>
-                    <m:Column id="_IDGenColumn5">
-                        <m:Text
-                            id="_IDGenText7"
-                            text="Created By"
-                        />
-                    </m:Column>
-                </m:columns>
                 <m:items>
-                    <m:ColumnListItem
-                        id="_IDGenColumnListItem1"
-                        type="Navigation"
-                        press=".onListItemPressed"
-                    >
-                        <m:cells>
-                            <m:ObjectIdentifier
-                                id="_IDGenObjectIdentifier1"
-                                title="{ID}"
-                                text="{content}"
-                            />
-                            <m:Text
-                                id="_IDGenText8"
-                                text="{title}"
-                            />
-                            <m:Text
-                                id="_IDGenText9"
-                                text="{likes}"
-                            />
-                            <m:Text
-                                id="_IDGenText12"
-                                text="{dislikes}"
-                            />
-                            <m:Text
-                                id="_IDGenText10"
-                                text="{favorites}"
-                            />
-                            <m:Text
-                                id="_IDGenText11"
-                                text="{createdBy}"
-                            />
-                        </m:cells>
-                    </m:ColumnListItem>
+                    <m:IconTabFilter
+                        id="_IDGenIconTabFilter0"
+                        text="All"
+                        key="all"
+                    />
+                    <m:IconTabFilter
+                        id="tabOwn"
+                        text="Own"
+                        key="own"
+                    />
+                    <m:IconTabFilter
+                        id="tabOthers"
+                        count=""
+                        text="Others"
+                        key="others"
+                    />
                 </m:items>
-            </m:Table>
+                <m:content>
+                    <m:Table
+                        mode="SingleSelectLeft"
+                        id="idBlogsTable"
+                        growing="true"
+                        updateFinished=".onUpdateFinished"
+                        items="{ path:'/Blogs',sorter: {path: 'ID'},parameters: {$count: true}}"
+                    >
+                        <m:headerToolbar>
+                            <m:OverflowToolbar id="_IDGenOverflowToolbar1">
+                                <m:Title
+                                    id="idtbHeaderTxt"
+                                    text="Blogs"
+                                    level="H2"
+                                />
+                                <m:ToolbarSpacer id="_IDGenToolbarSpacer1" />
+                                <m:Button
+                                    id="btnAdd"
+                                    icon="sap-icon://add"
+                                    press="onOpenDialog"
+                                />
+                                <m:Button
+                                    id="btnDelete"
+                                    icon="sap-icon://delete"
+                                    press="onDeleteBlog"
+                                />
+                            </m:OverflowToolbar>
+                        </m:headerToolbar>
+                        <m:columns>
+                            <m:Column id="_IDGenColumn1">
+                                <m:Text
+                                    id="_IDGenText3"
+                                    text="ID"
+                                />
+                            </m:Column>
+                            <m:Column id="_IDGenColumn2">
+                                <m:Text
+                                    id="_IDGenText4"
+                                    text="Title"
+                                />
+                            </m:Column>
+                            <m:Column id="_IDGenColumn3">
+                                <m:Text
+                                    id="_IDGenText5"
+                                    text="Likes"
+                                />
+                            </m:Column>
+                            <m:Column id="_IDGenColumn6">
+                                <m:Text
+                                    id="_IDGenText13"
+                                    text="Dislikes"
+                                />
+                            </m:Column>
+                            <m:Column id="_IDGenColumn4">
+                                <m:Text
+                                    id="_IDGenText6"
+                                    text="Favorites"
+                                />
+                            </m:Column>
+                            <m:Column id="_IDGenColumn5">
+                                <m:Text
+                                    id="_IDGenText7"
+                                    text="Created By"
+                                />
+                            </m:Column>
+                        </m:columns>
+                        <m:items>
+                            <m:ColumnListItem
+                                id="_IDGenColumnListItem1"
+                                type="Navigation"
+                                press=".onListItemPressed"
+                            >
+                                <m:cells>
+                                    <m:ObjectIdentifier
+                                        id="_IDGenObjectIdentifier1"
+                                        title="{ID}"
+                                        text="{path:'content' , formatter:'.formatter.formatContent'}"
+                                        
+                                    />
+                                    <m:Text
+                                        id="_IDGenText8"
+                                        text="{title}"
+                                    />
+                                    <m:Text
+                                        id="_IDGenText9"
+                                        text="{likes}"
+                                    />
+                                    <m:Text
+                                        id="_IDGenText12"
+                                        text="{dislikes}"
+                                    />
+                                    <m:Text
+                                        id="_IDGenText10"
+                                        text="{favorites}"
+                                    />
+                                    <m:Text
+                                        id="_IDGenText11"
+                                        text="{createdBy/name}"
+                                    />
+                                </m:cells>
+                            </m:ColumnListItem>
+                        </m:items>
+                    </m:Table>
+                </m:content>
+            </m:IconTabBar>
         </semantic:content>
     </semantic:SemanticPage>
 </mvc:View>

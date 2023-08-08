@@ -10,19 +10,34 @@ sap.ui.define([
     'sap/ui/model/Sorter',
     'sap/m/ColumnListItem',
     "sap/ui/core/UIComponent",
-    "sap/ui/core/Fragment",
-    "sap/m/MessageToast"
+    "sap/m/MessageToast",
+    "sap/ui/model/Filter",
+    "blogs/model/formatter"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, JSONModel, Engine, SelectionController, SortController, GroupController, MetadataHelper, Sorter, ColumnListItem, UIComponent, Fragment, MessageToast) {
+    function (Controller, JSONModel, Engine, SelectionController, SortController, GroupController, MetadataHelper, Sorter, ColumnListItem, UIComponent,  MessageToast, Filter,formatter) {
         "use strict";
         return Controller.extend("blogs.controller.Blogs", {
+            formatter: formatter,
             onInit: function () {
-                // var odataModel = new sap.ui.model.odata.v4.ODataModel({ serviceUrl: '/service/challenge/' });
-                // this.getView().setModel(odataModel);
+                // this._getUserInfo();
                 // this._registerForP13n();
+            },
+
+            _getUserInfo: function () {
+                var oModel = new sap.ui.model.odata.v4.ODataModel({ serviceUrl: "/service/challenge/", synchronizationMode: "None" });
+                // var oModel = new JSONModel({});
+                
+                var userID = "b7bc472f-a784-4db1-8d54-15ead1c99844";
+                // this.setModel(oModel, "userModel");
+                oModel.read("/Users", {
+					success: function (oData) {
+                        console.log(oData)
+					},
+					filters: new Filter("dbKey", "EQ",userID)
+				});
             },
 
             getRouter: function () {
@@ -56,7 +71,7 @@ sap.ui.define([
 
 
             //delete a blog when create user matches
-            onDeleteBlog:function () {
+            onDeleteBlog: function () {
                 var oTable = this.getView().byId("idBlogsTable");
                 var oContext = oTable.getSelectedItem().getBindingContext();
                 var oPage = this.getView();
@@ -66,7 +81,7 @@ sap.ui.define([
                 }.bind(this);
                 if (oPage.getBindingContext() === oContext) {
                     oPage.setBindingContext(null);
-                }  
+                }
                 oContext.delete();
                 oContext.getModel().submitBatch(this.getView().getModel().getUpdateGroupId()).then(fnSuccess);
             },
@@ -84,7 +99,10 @@ sap.ui.define([
                     ID: this._getIDforNewEntry(),
                     title: this.getView().byId("titleInput").getValue(),
                     content: this.getView().byId("contentInput").getValue(),
-                    Anonymous: this._getAnonymous()
+                    Anonymous: this._getAnonymous(),
+                    createdBy_dbKey: "b7bc472f-a784-4db1-8d54-15ead1c99844",
+                    createdAt: this._getDate()
+
                 };
 
                 var fnSuccess = function () {
@@ -97,6 +115,16 @@ sap.ui.define([
                 oBinding.create(oData);
                 // this.getView().getModel().submitBatch(this.getView().getModel().getUpdateGroupId()).then(fnSuccess);
                 oBinding.getModel().submitBatch(this.getView().getModel().getUpdateGroupId()).then(fnSuccess);
+            },
+
+            _getDate: function () {
+                var today = new Date();
+                if (today.getDay() < 10) {
+                    return today.getFullYear() + '-0' + (today.getMonth() + 1) + '-0' + today.getDate();
+                }
+                else {
+                    return today.getFullYear() + '-0' + (today.getMonth() + 1) + '-' + today.getDate();
+                }
             },
 
             _getIDforNewEntry: function () {
@@ -222,6 +250,41 @@ sap.ui.define([
                 oRouter.navTo("object", {
                     dbKey: oItem.getBindingContext().getProperty("dbKey")
                 });
+            },
+
+            onFilterSelect: function (oEvent) {
+                var oBinding = this.byId("idBlogsTable").getBinding("items"),
+                    sKey = oEvent.getParameter("key"),
+                    // Array to combine filters
+                    aFilters = [],
+                    // Values for Filter
+                    myUserDBKEY = "b7bc472f-a784-4db1-8d54-15ead1c99844";
+
+                if (sKey === "own") {
+                    aFilters.push(
+                        new Filter([
+                            new Filter([new Filter("createdBy_dbKey", "EQ", myUserDBKEY)], true)
+                        ], false)
+                    );
+                    this.byId("btnAdd").setProperty("enabled",true);
+                    this.byId("btnDelete").setProperty("enabled",true);
+                } else if (sKey === "others") {
+                    aFilters.push(
+                        new Filter([
+                            new Filter([new Filter("createdBy_dbKey", "NE",myUserDBKEY )], true)
+                        ], false)
+                    );
+                    this.byId("btnAdd").setProperty("enabled",false);
+                    this.byId("btnDelete").setProperty("enabled",false);
+
+                }       
+
+                oBinding.filter(aFilters);
+            },
+
+            onUpdateFinished : function (oEvent) {
+                var oHeader=this.byId("idtbHeaderTxt");
+                oHeader.setProperty("text","Blogs("+oEvent.getParameter("total")+")");
             }
         })
     });
