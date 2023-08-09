@@ -1,0 +1,9 @@
+/* Enter your custom styles here */
+.sapUiSizeCompact .sapUiCalItem, .sapUiSizeCompact .sapUiCalWeekNum {
+    height: 5rem;
+    line-height: 5rem;
+    font-size: 1rem;
+}
+.sapUiCal:not(.sapUiCalInt)>.sapUiCalHead {
+    max-width: 70rem;
+}
