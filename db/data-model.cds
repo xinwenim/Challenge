@@ -29,12 +29,12 @@ entity Replys {
   key dbKey     : UUID @(Core.Computed: true);
       ID        : String;
       content   : LargeString;
-      likes     : Integer;
-      dislikes  : Integer;
-      deleted   : Boolean; // 0 yes  1 no
-      createdAt : DateTime;
+      likes     : Integer default 0;
+      dislikes  : Integer default 0;
+      deleted   : Boolean default 0; // 0 no  1 yes
+      createdAt : Date;
       createdBy : Association to Users;
-      blog      : Association to Blogs;
+      blog      : Association to  one Blogs;
 }
 
 entity Measures {

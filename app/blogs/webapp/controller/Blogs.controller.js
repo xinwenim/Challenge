@@ -179,6 +179,7 @@ sap.ui.define([
                 });
                 Engine.getInstance().attachStateChange(this.handleStateChange.bind(this));
             },
+            
             openPersoDialog: function (oEvt) {
                 var oTable = this.byId("idBlogsTable");
                 Engine.getInstance().show(oTable, ["Columns", "Sorter", "Groups"], {
@@ -277,6 +278,10 @@ sap.ui.define([
                     this.byId("btnAdd").setProperty("enabled",false);
                     this.byId("btnDelete").setProperty("enabled",false);
 
+                }
+                else{
+                    this.byId("btnAdd").setProperty("enabled",false);
+                    this.byId("btnDelete").setProperty("enabled",false);
                 }       
 
                 oBinding.filter(aFilters);
@@ -285,6 +290,12 @@ sap.ui.define([
             onUpdateFinished : function (oEvent) {
                 var oHeader=this.byId("idtbHeaderTxt");
                 oHeader.setProperty("text","Blogs("+oEvent.getParameter("total")+")");
+            },
+
+            onAfterDialogClose:function () {
+                this.getView().byId("titleInput").setValue("");
+                this.getView().byId("contentInput").setValue("");
+                this.getView().byId("checkBox").setProperty("selected",false);
             }
         })
     });

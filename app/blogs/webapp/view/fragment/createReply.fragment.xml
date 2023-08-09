@@ -1,0 +1,49 @@
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:fb="sap.ui.comp.filterbar"
+    id="blogs.view.fragment.createReply"
+    controllerName="blogs.controller.Detail"
+    xmlns:form="sap.ui.layout.form"
+>
+    <Dialog
+        id="createReplyDialog"
+        title="New Reply"
+        initialFocus="titleInput"
+        draggable="true"
+        beforeOpen=".onBeforeDialogOpen"
+        afterClose=".onAfterDialogClose"
+    >
+        <form:SimpleForm
+            id="creationform"
+            editable="true"
+            validateFieldGroup=".onValidateFieldGroup"
+        >
+            <form:content>
+                <Label text="Content" />
+                <TextArea
+                    height="3cm"
+                    id="contentInput"
+                    showExceededText="true"
+                    maxLength="1000"
+                />
+            </form:content>
+        </form:SimpleForm>
+        <beginButton>
+            <Button
+                id="addButton"
+                text="OK"
+                type="Emphasized"
+                press=".onDialogOkPress"
+            />
+        </beginButton>
+        <endButton>
+            <Button
+                id="cancelButton"
+                text="Cancel"
+                press=".onDialogCancelPress"
+            />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

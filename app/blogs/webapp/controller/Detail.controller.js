@@ -3,12 +3,14 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/core/UIComponent",
     "sap/ui/core/routing/History",
-    "sap/m/MessageToast"
+    "sap/m/MessageToast",
+    "sap/ui/model/json/JSONModel",
+    "sap/ui/model/Filter"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, UIComponent, History, MessageToast) {
+    function (Controller, UIComponent, History, MessageToast, JSONModel, Filter) {
         "use strict";
         return Controller.extend("blogs.controller.Detail", {
             onInit: function () {
@@ -16,6 +18,18 @@ sap.ui.define([
                 var disLikedFlag = false;
                 var favFlag = false;
                 var oRouter = this.getRouter();
+                var oViewModel = new JSONModel({
+                    busy: false,
+                    hasUIChanges: false,
+                    contentEmpty: true,
+                    order: 0
+                });
+
+                var blogDBKey = "";
+
+                this._bTechnicalErrors = false;
+
+                this.getView().setModel(oViewModel, "tableView");
 
                 oRouter.getRoute("Detail").attachMatched(this._onRouteMatched, this);
             },
@@ -25,6 +39,8 @@ sap.ui.define([
 
                 oArgs = oEvent.getParameter("arguments");
                 oView = this.getView();
+
+                this.blogDBKey = oArgs.dbKey;
 
                 oView.bindElement({
                     path: "/Blogs(" + oArgs.dbKey + ")",
@@ -38,6 +54,7 @@ sap.ui.define([
                         }
                     }
                 });
+
             },
 
             getRouter: function () {
@@ -131,7 +148,85 @@ sap.ui.define([
             },
 
             onExit: function () {
-                this.getView().destroyContent();
+                this.getView().destroy();
+            },
+
+            _getDate: function () {
+                var today = new Date();
+                if (today.getDay() < 10) {
+                    return today.getFullYear() + '-0' + (today.getMonth() + 1) + '-0' + today.getDate();
+                }
+                else {
+                    return today.getFullYear() + '-0' + (today.getMonth() + 1) + '-' + today.getDate();
+                }
+            },
+
+            _getIDforNewEntry: function () {
+                var oItems = this.getView().byId("replyList").getItems();
+                var oItem = oItems[oItems.length - 1];
+                if (!oItem) {
+                    var newID = "0001";
+                }
+                else {
+                    var newID = (parseInt(oItems.length)).toString();
+                    for (var i = newID.length; i < 4; i++) {
+                        newID = "0" + newID;
+                    }
+                }
+                return newID;
+            },
+
+            _setBusy: function (bIsBusy) {
+                var oModel = this.getView().getModel("tableView");
+
+                oModel.setProperty("/busy", bIsBusy);
+            },
+
+            onCreate: function () {
+                // create dialog lazily
+                if (!this.pDialog) {
+                    this.pDialog = this.loadFragment({
+                        name: "blogs.view.fragment.createReply"
+                    });
+                }
+
+                this.pDialog.then(function (oDialog) {
+                    oDialog.open();
+                });
+            },
+
+            onDialogCancelPress: function () {
+                this.byId("createReplyDialog").close();
+            },
+
+            onDialogOkPress: function (oEvent) {
+                var oBinding = this.byId("replyList").getModel().bindList("/Replys");
+                var oData = {
+                    ID: this._getIDforNewEntry(),
+                    content: this.getView().byId("contentInput").getValue(),
+                    createdBy_dbKey: "b7bc472f-a784-4db1-8d54-15ead1c99844",
+                    createdAt: this._getDate(),
+                    blog_dbKey: this.blogDBKey
+                };
+                var fnSuccess = function () {
+                    this._setBusy(false);
+                    this.getView().getModel().refresh();
+                    MessageToast.show("Reply Succeed");
+                }.bind(this),
+
+                    fnError = function (oError) {
+                        this._setBusy(false);
+                        MessageBox.error("Reply Failed");
+                    }.bind(this);
+
+                this._setBusy(true);
+                oBinding.create(oData);
+                oBinding.getModel().submitBatch(this.getView().getModel().getUpdateGroupId()).then(fnSuccess, fnError);
+                this.byId("createReplyDialog").close();
+            },
+
+            onAfterDialogClose:function () {
+                this.getView().byId("contentInput").setValue("");
             }
 
         })
