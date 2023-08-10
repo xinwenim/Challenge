@@ -1,20 +1,151 @@
 <mvc:View controllerName="profile.controller.Profile"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns:m="sap.m" xmlns="sap.suite.ui.microchart">
-    <m:GenericTile id="_IDGenGenericTile1" header="Profile"
-		frameType="OneByOne" press="press">
-		<m:tileContent>
-			<m:TileContent id="_IDGenTileContent1" >
-				<m:content>
-					<ColumnMicroChart id="_IDGenColumnMicroChart1" size="Responsive">
-						<columns>
-							<ColumnMicroChartData id="_IDGenColumnMicroChartData1" value="65" color="Error" />
-							<ColumnMicroChartData id="_IDGenColumnMicroChartData2" value="35" color="Neutral" />
-							<ColumnMicroChartData id="_IDGenColumnMicroChartData3" value="65" color="Neutral" />
-						</columns>
-					</ColumnMicroChart>
-				</m:content>
-			</m:TileContent>
-		</m:tileContent>
-	</m:GenericTile>
+    xmlns="sap.uxap"
+	xmlns:layout="sap.ui.layout"
+	xmlns:forms="sap.ui.layout.form"
+	xmlns:m="sap.m"
+	>
+<ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="true" upperCaseAnchorBar="false">
+		<headerTitle>
+			<ObjectPageDynamicHeaderTitle id="_IDGenObjectPageDynamicHeaderTitle1">
+				<breadcrumbs>
+					<m:Breadcrumbs id="_IDGenBreadcrumbs1">
+						<m:Link id="_IDGenLink1" text="Home" press="handleLink1Press"/>
+					</m:Breadcrumbs>
+				</breadcrumbs>
+
+				<expandedHeading>
+					<m:Title id="_IDGenTitle1" text="Alex Li" wrapping="true"/>
+				</expandedHeading>
+
+				<snappedHeading>
+					<m:FlexBox id="_IDGenFlexBox1" fitContainer="true" alignItems="Center">
+						<m:Avatar id="_IDGenAvatar1" src="./test-resources/sap/uxap/images/imageID_275314.png" class="sapUiTinyMarginEnd"/>
+						<m:Title id="_IDGenTitle2" text="Alex Li" wrapping="true"/>
+					</m:FlexBox>
+				</snappedHeading>
+
+				<expandedContent>
+					<m:Text id="_IDGenText1" text="Team 1109"/>
+				</expandedContent>
+
+				<snappedContent>
+					<m:Text id="_IDGenText2" text="Team 1109"/>
+				</snappedContent>
+
+				<snappedTitleOnMobile>
+					<m:Title id="_IDGenTitle3" text="Team 1109"/>
+				</snappedTitleOnMobile>
+
+				<actions>
+					<m:Button id="_IDGenButton2" text="Retake MBTI Test" press="toggleFooter"/>
+				</actions>
+			</ObjectPageDynamicHeaderTitle>
+		</headerTitle>
+
+		<headerContent>
+			<m:FlexBox id="_IDGenFlexBox2" wrap="Wrap" fitContainer="true" >
+				<m:Avatar id="_IDGenAvatar2" class="sapUiSmallMarginEnd" src="./test-resources/sap/uxap/images/imageID_275314.png" displaySize="L" />
+
+				<layout:VerticalLayout id="_IDGenVerticalLayout3" class="sapUiSmallMarginBeginEnd">
+					<m:Label id="_IDGenLabel3" text="Dalian, China"/>
+					<m:Link id="_IDGenLink4" text="alex.li10@sap.com"/>
+					<m:Label id="_IDGenLabel4" text=" "/>
+					<m:Label id="_IDGenLabel1" text="Hello! I am Alex from Team 1109. Have fun in innovator Change 2023!"/>
+				</layout:VerticalLayout>
+			</m:FlexBox>
+		</headerContent>
+
+		<sections>
+
+			<ObjectPageSection id="_IDGenObjectPageSection11" titleUppercase="false" title="My MBTI">
+				<subSections>
+					<ObjectPageSubSection id="_IDGenObjectPageSubSection11" titleUppercase="false">
+						<forms:Form id="_IDGenForm11" width="100%">
+							<forms:layout>
+								<forms:ColumnLayout id="_IDGenColumnLayout11"/>
+							</forms:layout>
+							<forms:formContainers>
+								<forms:FormContainer id="socialInfo" title="">
+									<forms:formElements>
+										<forms:FormElement id="_IDGenFormElement6" label="ISFJ">
+											<forms:fields>
+												<m:Text id="_IDGenText8" text="A Defender (ISFJ) is someone with the Introverted, Observant, Feeling, and Judging personality traits. 
+												These people tend to be warm and unassuming in their own steady way. 
+												They’re efficient and responsible, giving careful attention to practical details in their daily lives."/>
+											</forms:fields>
+										</forms:FormElement>
+
+									</forms:formElements>
+								</forms:FormContainer>
+
+							</forms:formContainers>
+
+						</forms:Form>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			<ObjectPageSection id="_IDGenObjectPageSection1" titleUppercase="false" title="Status">
+				<subSections>
+					<ObjectPageSubSection id="_IDGenObjectPageSubSection1" titleUppercase="false">
+						<forms:Form id="_IDGenForm1" width="100%">
+							<forms:layout>
+								<forms:ColumnLayout id="_IDGenColumnLayout1"/>
+							</forms:layout>
+							<forms:formContainers>
+
+								<forms:FormContainer id="addressInfo" title="">
+									<forms:formElements>
+
+										<forms:FormElement id="_IDGenFormElement1" label="Mind">
+											<forms:fields>
+												<m:Text id="_IDGenText3" text="65"/>
+											</forms:fields>
+										</forms:FormElement>
+										<forms:FormElement id="_IDGenFormElement11">
+
+										</forms:FormElement>
+
+										<forms:FormElement id="_IDGenFormElement2" label="Sport">
+											<forms:fields>
+												<m:Text id="_IDGenText4" text="35"/>
+											</forms:fields>
+										</forms:FormElement>
+										<forms:FormElement id="_IDGenFormElement12">
+
+										</forms:FormElement>
+										<forms:FormElement id="_IDGenFormElement3" label="Food">
+											<forms:fields>
+												<m:Text id="_IDGenText5" text="50"/>
+											</forms:fields>
+										</forms:FormElement>
+									</forms:formElements>
+								</forms:FormContainer>
+
+								<forms:FormContainer id="socialInfo1" title=" ">
+									<forms:formElements>
+
+									</forms:formElements>
+								</forms:FormContainer>
+							</forms:formContainers>
+						</forms:Form>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection id="_IDGenObjectPageSection2" titleUppercase="false" title="Employment">
+				<subSections>
+					<ObjectPageSubSection id="_IDGenObjectPageSubSection2" title="Employment" titleUppercase="false">
+						<!-- <blocks>
+							<employment:BlockJobInfo id="jobinfo" columnLayout="3"/>
+							<blockcolor:BlockBlue id="bbt5"/>
+							<blockcolor:BlockBlue id="bbt6"/>
+							<blockcolor:BlockBlue id="bbt7"/>
+							<blockcolor:BlockBlue id="bbt8"/>
+						</blocks> -->
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+	</ObjectPageLayout>
 </mvc:View>
