@@ -38,7 +38,7 @@
                         />
                         <m:Text
                             id="textName"
-                            text="WENXIN"
+                            text="Alex Li"
                             class="sapUiSmallMarginBegin"
                         />
                     </m:HBox>
@@ -63,7 +63,7 @@
                         />
                         <m:Text
                             id="_IDGenText2"
-                            text="lana.wen@sap.com"
+                            text="alex.li@sap.com"
                             class="sapUiSmallMarginBegin"
                         />
                     </m:HBox>
@@ -78,14 +78,15 @@
                         id="_IDGenHBox4"
                         class="sapUiSmallMarginBottom"
                     >
-                        <core:Icon
-                            id="_IDGenIcon1"
-                            src="sap-icon://thumb-up"
-                        />
                         <m:Label
+                            width="1.3cm"
                             design="Bold"
                             id="_IDGenLabel3"
                             text="Likes"
+                            class="sapUiSmallMarginBegin"
+                        />
+                        <m:Text
+                            text="10"
                             class="sapUiSmallMarginBegin"
                         />
                     </m:HBox>
@@ -93,26 +94,28 @@
                         id="_IDGenHBox5"
                         class="sapUiSmallMarginBottom"
                     >
-                        <core:Icon
-                            id="_IDGenIcon2"
-                            src="sap-icon://thumb-down"
-                        />
                         <m:Label
+                            width="1.3cm"
                             id="_IDGenLink2"
                             text="Dislikes"
                             design="Bold"
                             class="sapUiSmallMarginBegin"
                         />
+                        <m:Text
+                            text="6"
+                            class="sapUiSmallMarginBegin"
+                        />
                     </m:HBox>
                     <m:HBox id="_IDGenHBox6">
-                        <core:Icon
-                            id="_IDGenIcon3"
-                            src="sap-icon://favorite-list"
-                        />
                         <m:Label
+                            width="1.3cm"
                             id="_IDGenLink3"
                             text="Reputation"
                             design="Bold"
+                            class="sapUiSmallMarginBegin"
+                        />
+                        <m:Text
+                            text="0"
                             class="sapUiSmallMarginBegin"
                         />
                     </m:HBox>

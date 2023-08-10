@@ -119,7 +119,7 @@ sap.ui.define([
 
             _getDate: function () {
                 var today = new Date();
-                if (today.getDay() < 10) {
+                if (today.getDate() < 10) {
                     return today.getFullYear() + '-0' + (today.getMonth() + 1) + '-0' + today.getDate();
                 }
                 else {
