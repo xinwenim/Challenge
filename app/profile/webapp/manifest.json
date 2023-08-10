@@ -87,34 +87,47 @@
         }
       ]
     },
-    "routing": {
-      "config": {
-        "routerClass": "sap.m.routing.Router",
-        "viewType": "XML",
-        "async": true,
-        "viewPath": "profile.view",
-        "controlAggregation": "pages",
-        "controlId": "app",
-        "clearControlAggregation": false
-      },
-      "routes": [
-        {
-          "name": "RouteProfile",
-          "pattern": ":?query:",
-          "target": [
-            "TargetProfile"
-          ]
-        }
-      ],
-      "targets": {
-        "TargetProfile": {
+
+      "routing": {
+        "config": {
+          "routerClass": "sap.m.routing.Router",
           "viewType": "XML",
-          "transition": "slide",
-          "clearControlAggregation": false,
-          "viewId": "Profile",
-          "viewName": "Profile"
+          "async": true,
+          "viewPath": "profile.view",
+          "controlAggregation": "pages",
+          "controlId": "app",
+          "clearControlAggregation": false
+        },
+        "routes": [
+          {
+            "name": "Profile",
+            "pattern": "",
+            "target": "Profile"
+          },
+          {
+            "name": "Profiledetail",
+            "pattern": "",
+            "target": "Profiledetail"
+          }
+  
+        ],
+        "targets": {
+          "Profile": {
+            "viewType": "XML",
+            "transition": "slide",
+            "clearControlAggregation": false,
+            "viewId": "Profile",
+            "viewName": "Profile"
+          },
+
+          "Profiledetail": {
+            "viewType": "XML",
+            "viewId": "Profiledetail",
+            "viewName": "Profiledetail",
+            "level":2
+          }
         }
-      }
+
     },
     "rootView": {
       "viewName": "profile.view.App",
