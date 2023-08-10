@@ -79,7 +79,7 @@
                         class="sapUiSmallMarginBottom"
                     >
                         <m:Label
-                            width="1.3cm"
+                            width="2cm"
                             design="Bold"
                             id="_IDGenLabel3"
                             text="Likes"
@@ -95,7 +95,7 @@
                         class="sapUiSmallMarginBottom"
                     >
                         <m:Label
-                            width="1.3cm"
+                            width="2cm"
                             id="_IDGenLink2"
                             text="Dislikes"
                             design="Bold"
@@ -108,7 +108,7 @@
                     </m:HBox>
                     <m:HBox id="_IDGenHBox6">
                         <m:Label
-                            width="1.3cm"
+                            width="2cm"
                             id="_IDGenLink3"
                             text="Reputation"
                             design="Bold"
