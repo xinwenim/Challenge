@@ -1,0 +1,32 @@
+<mvc:View
+		controllerName="admin.controller.Calendar"
+		xmlns:l="sap.ui.layout"
+		xmlns:u="sap.ui.unified"
+		xmlns:mvc="sap.ui.core.mvc"
+		xmlns="sap.m"
+		class="viewPadding">
+	<l:VerticalLayout>
+	  <VBox class=" sapUiLargeMarginTop sapUiLargeMarginBegin sapUiCalWeekNum sapUiCalHead"
+	  direction="Column">
+		<u:Calendar
+				id="Calendar"
+				width="70rem"
+				select="handleCalendarSelect" />
+	  </VBox>
+	  <FlexBox direction="Column">
+		<Button
+				press="handleSelectToday"
+				text="Select Today" />
+		<l:HorizontalLayout>
+			<Label
+					text="Selected Date (yyyy-mm-dd):"
+					class="labelMarginLeft" />
+			<Text
+					id="selectedDate"
+					text="{ID}"
+					class="labelMarginLeft"/>
+		</l:HorizontalLayout>
+      </FlexBox>
+	</l:VerticalLayout>
+
+</mvc:View>
