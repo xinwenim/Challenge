@@ -10,7 +10,7 @@
         "express": "^4"
     },
     "devDependencies": {
-        "@sap/ux-specification": "^1.108.10",
+        "@sap/ux-specification": "^1.108.11",
         "rimraf": "^3.0.2",
         "sqlite3": "^5.1.6"
     },
@@ -20,13 +20,14 @@
         "undeploy": "cf undeploy Challenge --delete-services --delete-service-keys --delete-service-brokers",
         "build": "rimraf resources mta_archives && mbt build --mtar archive",
         "deploy": "cf deploy mta_archives/archive.mtar --retries 1",
-        "watch-blogs": "cds watch --open blogs/webapp/index.html?sap-ui-xx-viewCache=false"
+        "watch-blogs": "cds watch --open blogs/webapp/index.html?sap-ui-xx-viewCache=false",
+        "watch-recording": "cds watch --open recording/webapp/index.html?sap-ui-xx-viewCache=false"
     },
-    "cds":{
+    "cds": {
         "requires": {
-            "db":{
-                "kind":"sqlite",
-                "model":"*",
+            "db": {
+                "kind": "sqlite",
+                "model": "*",
                 "credentials": {
                     "database": "challenge.sqlite"
                 }

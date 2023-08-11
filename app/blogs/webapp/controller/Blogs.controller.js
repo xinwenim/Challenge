@@ -17,27 +17,12 @@ sap.ui.define([
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, JSONModel, Engine, SelectionController, SortController, GroupController, MetadataHelper, Sorter, ColumnListItem, UIComponent,  MessageToast, Filter,formatter) {
+    function (Controller, JSONModel, Engine, SelectionController, SortController, GroupController, MetadataHelper, Sorter, ColumnListItem, UIComponent, MessageToast, Filter, formatter) {
         "use strict";
         return Controller.extend("blogs.controller.Blogs", {
             formatter: formatter,
             onInit: function () {
-                // this._getUserInfo();
                 // this._registerForP13n();
-            },
-
-            _getUserInfo: function () {
-                var oModel = new sap.ui.model.odata.v4.ODataModel({ serviceUrl: "/service/challenge/", synchronizationMode: "None" });
-                // var oModel = new JSONModel({});
-                
-                var userID = "b7bc472f-a784-4db1-8d54-15ead1c99844";
-                // this.setModel(oModel, "userModel");
-                oModel.read("/Users", {
-					success: function (oData) {
-                        console.log(oData)
-					},
-					filters: new Filter("dbKey", "EQ",userID)
-				});
             },
 
             getRouter: function () {
@@ -179,7 +164,7 @@ sap.ui.define([
                 });
                 Engine.getInstance().attachStateChange(this.handleStateChange.bind(this));
             },
-            
+
             openPersoDialog: function (oEvt) {
                 var oTable = this.byId("idBlogsTable");
                 Engine.getInstance().show(oTable, ["Columns", "Sorter", "Groups"], {
@@ -267,35 +252,35 @@ sap.ui.define([
                             new Filter([new Filter("createdBy_dbKey", "EQ", myUserDBKEY)], true)
                         ], false)
                     );
-                    this.byId("btnAdd").setProperty("enabled",true);
-                    this.byId("btnDelete").setProperty("enabled",true);
+                    this.byId("btnAdd").setProperty("enabled", true);
+                    this.byId("btnDelete").setProperty("enabled", true);
                 } else if (sKey === "others") {
                     aFilters.push(
                         new Filter([
-                            new Filter([new Filter("createdBy_dbKey", "NE",myUserDBKEY )], true)
+                            new Filter([new Filter("createdBy_dbKey", "NE", myUserDBKEY)], true)
                         ], false)
                     );
-                    this.byId("btnAdd").setProperty("enabled",false);
-                    this.byId("btnDelete").setProperty("enabled",false);
+                    this.byId("btnAdd").setProperty("enabled", false);
+                    this.byId("btnDelete").setProperty("enabled", false);
 
                 }
-                else{
-                    this.byId("btnAdd").setProperty("enabled",false);
-                    this.byId("btnDelete").setProperty("enabled",false);
-                }       
+                else {
+                    this.byId("btnAdd").setProperty("enabled", false);
+                    this.byId("btnDelete").setProperty("enabled", false);
+                }
 
                 oBinding.filter(aFilters);
             },
 
-            onUpdateFinished : function (oEvent) {
-                var oHeader=this.byId("idtbHeaderTxt");
-                oHeader.setProperty("text","Blogs("+oEvent.getParameter("total")+")");
+            onUpdateFinished: function (oEvent) {
+                var oHeader = this.byId("idtbHeaderTxt");
+                oHeader.setProperty("text", "Blogs(" + oEvent.getParameter("total") + ")");
             },
 
-            onAfterDialogClose:function () {
+            onAfterDialogClose: function () {
                 this.getView().byId("titleInput").setValue("");
                 this.getView().byId("contentInput").setValue("");
-                this.getView().byId("checkBox").setProperty("selected",false);
+                this.getView().byId("checkBox").setProperty("selected", false);
             }
         })
     });

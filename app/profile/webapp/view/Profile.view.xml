@@ -8,50 +8,22 @@
 <ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="true" upperCaseAnchorBar="false">
 		<headerTitle>
 			<ObjectPageDynamicHeaderTitle id="_IDGenObjectPageDynamicHeaderTitle1">
-				<breadcrumbs>
-					<m:Breadcrumbs id="_IDGenBreadcrumbs1">
-						<m:Link id="_IDGenLink1" text="Home" press="handleLink1Press"/>
-					</m:Breadcrumbs>
-				</breadcrumbs>
-
-				<expandedHeading>
-					<m:Title id="_IDGenTitle1" text="Alex Li" wrapping="true"/>
-				</expandedHeading>
-
-				<snappedHeading>
-					<m:FlexBox id="_IDGenFlexBox1" fitContainer="true" alignItems="Center">
-						<m:Avatar id="_IDGenAvatar1" src="./test-resources/sap/uxap/images/imageID_275314.png" class="sapUiTinyMarginEnd"/>
-						<m:Title id="_IDGenTitle2" text="Alex Li" wrapping="true"/>
-					</m:FlexBox>
-				</snappedHeading>
-
-				<expandedContent>
-					<m:Text id="_IDGenText1" text="Team 1109"/>
-				</expandedContent>
-
-				<snappedContent>
-					<m:Text id="_IDGenText2" text="Team 1109"/>
-				</snappedContent>
-
-				<snappedTitleOnMobile>
-					<m:Title id="_IDGenTitle3" text="Team 1109"/>
-				</snappedTitleOnMobile>
-
 				<actions>
-					<m:Button id="_IDGenButton2" text="Retake MBTI Test" press="toggleFooter"/>
+					<m:Button id="_IDGenButton2" text="Retake MBTI Test" press="onRetakeTest"/>
 				</actions>
 			</ObjectPageDynamicHeaderTitle>
 		</headerTitle>
 
 		<headerContent>
 			<m:FlexBox id="_IDGenFlexBox2" wrap="Wrap" fitContainer="true" >
-				<m:Avatar id="_IDGenAvatar2" class="sapUiSmallMarginEnd" src="./test-resources/sap/uxap/images/imageID_275314.png" displaySize="L" />
+				<m:Avatar id="idProfilePic" class="sapUiSmallMarginEnd" displaySize="L" />
 
 				<layout:VerticalLayout id="_IDGenVerticalLayout3" class="sapUiSmallMarginBeginEnd">
-					<m:Label id="_IDGenLabel3" text="Dalian, China"/>
-					<m:Link id="_IDGenLink4" text="alex.li10@sap.com"/>
-					<m:Label id="_IDGenLabel4" text=" "/>
-					<m:Label id="_IDGenLabel1" text="Hello! I am Alex from Team 1109. Have fun in innovator Change 2023!"/>
+				<layout:ResponsiveFlowLayout >
+				<m:Title id="idName" text="" wrapping="true"/>
+					<m:Label id="labelRegion" text=""/>
+					<m:Link id="labelEmail" text=""/>
+				</layout:ResponsiveFlowLayout>
 				</layout:VerticalLayout>
 			</m:FlexBox>
 		</headerContent>
@@ -63,16 +35,19 @@
 					<ObjectPageSubSection id="_IDGenObjectPageSubSection11" titleUppercase="false">
 						<forms:Form id="_IDGenForm11" width="100%">
 							<forms:layout>
-								<forms:ColumnLayout id="_IDGenColumnLayout11"/>
+								<forms:ResponsiveGridLayout id="_IDGenColumnLayout11"/>
 							</forms:layout>
 							<forms:formContainers>
 								<forms:FormContainer id="socialInfo" title="">
 									<forms:formElements>
-										<forms:FormElement id="_IDGenFormElement6" label="ISFJ">
+										<forms:FormElement label="Type">
 											<forms:fields>
-												<m:Text id="_IDGenText8" text="A Defender (ISFJ) is someone with the Introverted, Observant, Feeling, and Judging personality traits. 
-												These people tend to be warm and unassuming in their own steady way. 
-												They’re efficient and responsible, giving careful attention to practical details in their daily lives."/>
+												<m:Text id="textType" text=""/>
+											</forms:fields>
+										</forms:FormElement>
+										<forms:FormElement label="Description">
+											<forms:fields>
+												<m:Text id="textDes" text=""/>
 											</forms:fields>
 										</forms:FormElement>
 
@@ -129,20 +104,6 @@
 								</forms:FormContainer>
 							</forms:formContainers>
 						</forms:Form>
-					</ObjectPageSubSection>
-				</subSections>
-			</ObjectPageSection>
-
-			<ObjectPageSection id="_IDGenObjectPageSection2" titleUppercase="false" title="Employment">
-				<subSections>
-					<ObjectPageSubSection id="_IDGenObjectPageSubSection2" title="Employment" titleUppercase="false">
-						<!-- <blocks>
-							<employment:BlockJobInfo id="jobinfo" columnLayout="3"/>
-							<blockcolor:BlockBlue id="bbt5"/>
-							<blockcolor:BlockBlue id="bbt6"/>
-							<blockcolor:BlockBlue id="bbt7"/>
-							<blockcolor:BlockBlue id="bbt8"/>
-						</blocks> -->
 					</ObjectPageSubSection>
 				</subSections>
 			</ObjectPageSection>
