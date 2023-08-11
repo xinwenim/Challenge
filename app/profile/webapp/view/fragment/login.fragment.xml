@@ -1,0 +1,32 @@
+
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:fb="sap.ui.comp.filterbar"
+    id="profile.view.fragment.question"
+    controllerName="profile.controller.Profile"
+    xmlns:form="sap.ui.layout.form"
+>
+    <Dialog
+        id="idLoginDia"
+        title="Alreay known your MBTI?"
+        draggable="true"
+        beforeOpen=".onBeforeDialogOpen"
+        afterClose=".onAfterLoginClose"
+    >
+        <beginButton>
+            <Button
+                text="Yes"
+                type="Emphasized"
+                press=".onKnowPress"
+            />
+        </beginButton>
+        <endButton>
+            <Button
+                text="No"
+                press=".onNotKnowPress"
+            />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>
