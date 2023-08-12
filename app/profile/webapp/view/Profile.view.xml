@@ -19,7 +19,7 @@
 				<m:Avatar id="idProfilePic" class="sapUiSmallMarginEnd" displaySize="L" />
 
 				<layout:VerticalLayout id="_IDGenVerticalLayout3" class="sapUiSmallMarginBeginEnd">
-				<layout:ResponsiveFlowLayout >
+				<layout:ResponsiveFlowLayout id="_IDGenResponsiveFlowLayout1" >
 				<m:Title id="idName" text="" wrapping="true"/>
 					<m:Label id="labelRegion" text=""/>
 					<m:Link id="labelEmail" text=""/>
@@ -40,12 +40,12 @@
 							<forms:formContainers>
 								<forms:FormContainer id="socialInfo" title="">
 									<forms:formElements>
-										<forms:FormElement label="Type">
+										<forms:FormElement id="_IDGenFormElement4" label="Type">
 											<forms:fields>
 												<m:Text id="textType" text=""/>
 											</forms:fields>
 										</forms:FormElement>
-										<forms:FormElement label="Description">
+										<forms:FormElement id="_IDGenFormElement5" label="Description">
 											<forms:fields>
 												<m:Text id="textDes" text=""/>
 											</forms:fields>
@@ -74,7 +74,7 @@
 
 										<forms:FormElement id="_IDGenFormElement1" label="Mind">
 											<forms:fields>
-												<m:Text id="_IDGenText3" text="65"/>
+												<m:Text id="MindVal" text=""/>
 											</forms:fields>
 										</forms:FormElement>
 										<forms:FormElement id="_IDGenFormElement11">
@@ -83,7 +83,7 @@
 
 										<forms:FormElement id="_IDGenFormElement2" label="Sport">
 											<forms:fields>
-												<m:Text id="_IDGenText4" text="35"/>
+												<m:Text id="SportVal" text=""/>
 											</forms:fields>
 										</forms:FormElement>
 										<forms:FormElement id="_IDGenFormElement12">
@@ -91,7 +91,7 @@
 										</forms:FormElement>
 										<forms:FormElement id="_IDGenFormElement3" label="Food">
 											<forms:fields>
-												<m:Text id="_IDGenText5" text="50"/>
+												<m:Text id="FoodVal" text=""/>
 											</forms:fields>
 										</forms:FormElement>
 									</forms:formElements>

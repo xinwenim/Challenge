@@ -22,7 +22,7 @@
             <form:content>
                 <Label
                     labelFor="question1"
-                    text="Prefer to stry alone or go out?"
+                    text="How do you direct your mental energy."
                 />
                 <RadioButtonGroup
                     id="question1"
@@ -31,16 +31,16 @@
                 >
                     <RadioButton
                         id="gp1q1"
-                        text="Go out"
+                        text="Stay alone"
                     />
                     <RadioButton
                         id="qp1q2"
-                        text="Stay alone"
+                        text="Go out"
                     />
                 </RadioButtonGroup>
                 <Label
                     labelFor="question2"
-                    text="Always thinking"
+                    text="You always thinking"
                 />
                 <RadioButtonGroup
                     id="question2"
@@ -53,12 +53,12 @@
                     />
                     <RadioButton
                         id="gp2q2"
-                        text="Concret"
+                        text="Concrete"
                     />
                 </RadioButtonGroup>
                 <Label
                     labelFor="question3"
-                    text="Make decision_"
+                    text="You always make your decision"
                 />
                 <RadioButtonGroup
                     id="question3"
@@ -71,12 +71,12 @@
                     />
                     <RadioButton
                         id="gp3q2"
-                        text="Irrationally"
+                        text="By felling"
                     />
                 </RadioButtonGroup>
                 <Label
                     labelFor="question4"
-                    text="Adaptive to changes of environment?"
+                    text="How do you interact with your environment."
                 />
                 <RadioButtonGroup
                     id="question4"
@@ -85,11 +85,11 @@
                 >
                     <RadioButton
                         id="gp4q1"
-                        text="Yes"
+                        text="Adapt to the environment"
                     />
                     <RadioButton
                         id="gp4q2"
-                        text="No"
+                        text="Change the environment"
                     />
                 </RadioButtonGroup>
             </form:content>
