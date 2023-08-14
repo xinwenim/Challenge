@@ -14,7 +14,15 @@
         beforeOpen=".onBeforeDialogOpen"
         afterClose=".onAfterLoginClose"
     >
-        
+        <form:SimpleForm
+            id="loginform"
+            editable="true"
+            validateFieldGroup=".onValidateFieldGroup"
+        >
+            <form:content>
+                <Text text="Do you already know your MBTI？" />
+            </form:content>
+        </form:SimpleForm>
         <beginButton>
             <Button
                 text="Yes"
@@ -23,7 +31,7 @@
             />
         </beginButton>
         <endButton>
-            <Button 
+            <Button
                 text="No"
                 press=".onNotKnowPress"
             />
