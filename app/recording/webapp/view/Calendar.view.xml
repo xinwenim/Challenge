@@ -3,7 +3,8 @@
     xmlns:l="sap.ui.layout"
     xmlns:u="sap.ui.unified"
     xmlns:mvc="sap.ui.core.mvc"
-	xmlns:core="sap.ui.core"
+    xmlns:mc="sap.suite.ui.microchart"
+    xmlns:core="sap.ui.core"
     xmlns="sap.m"
     xmlns:f="sap.f"
     class="viewPadding"
@@ -29,6 +30,48 @@
                         width="70rem"
                         select="handleCalendarSelect"
                     />
+                    <Panel id="_IDGenPanel1"
+                        headerText="Recording Line Chart"
+                        width="70rem"
+                    >
+                        <l:HorizontalLayout id="_IDGenVerticalLayout2" content="{/multiline}">
+                            <mc:LineMicroChart id="_IDGenLineMicroChart1"
+                                color="{color}"
+                                showPoints="{showPoints}"
+                                width="60rem"
+                                threshold="{threshold}"
+                                showThresholdLine="{showThresholdLine}"
+                                leftTopLabel="{leftTopLabel}"
+                                leftBottomLabel="{leftBottomLabel}"
+                                rightTopLabel="{rightTopLabel}"
+                                rightBottomLabel="{rightBottomLabel}"
+                                showTopLabels="{showTopLabels}"
+                                showBottomLabels="{showBottomLabels}"
+                                class="sapUiTinyMarginTop"
+                                lines="{
+							path: 'lines',
+							templateShareable: true
+						}"
+                            >
+                                <mc:lines>
+                                    <mc:LineMicroChartLine id="_IDGenLineMicroChartLine1"
+                                        points="{
+								path: 'points',
+								templateShareable: true
+							}"
+                                        color="{color}"
+                                        showPoints="{showPoints}"
+                                        type="{type}"
+                                    >
+                                        <mc:LineMicroChartPoint id="_IDGenLineMicroChartPoint1"
+                                            x="{x}"
+                                            y="{y}"
+                                        />
+                                    </mc:LineMicroChartLine>
+                                </mc:lines>
+                            </mc:LineMicroChart>
+                        </l:HorizontalLayout>
+                    </Panel>
                 </VBox>
                 <FlexBox
                     id="_IDGenFlexBox1"
