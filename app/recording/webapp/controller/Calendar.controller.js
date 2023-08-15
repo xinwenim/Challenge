@@ -16,47 +16,42 @@ sap.ui.define(['sap/ui/core/mvc/Controller',
 				this.oFormatYyyymmdd = DateFormat.getInstance({ pattern: "yyyy-MM-dd", calendarType: CalendarType.Gregorian });
 				this.oModel = new JSONModel(
 					{
-						"size": "L",
-						"lines": [
-							{
-								"points": [
-									{ "x": 0, "y": 50 },
-									{ "x": 20, "y": 68 },
-									{ "x": 40, "y": 25 },
-									{ "x": 60, "y": 45 },
-									{ "x": 80, "y": 67 },
-									{ "x": 100, "y": 88 }
-								]
-							}
-						],
 						"multiline": [
 							{
-								"description": "2 lines, threshold line, labels shown",
-								"threshold": 50,
-								"leftTopLabel": "120 M",
-								"rightTopLabel": "140 M",
-								"leftBottomLabel": "Sept 2016",
-								"rightBottomLabel": "Oct 2016",
-								"showPoints": true,
+								"leftBottomLabel": "20 Aug",
+								"rightBottomLabel": "27 Aug",
 								"lines": [
 									{
 										"points": [
-											{ "x": 0, "y": 50 },
-											{ "x": 8, "y": 68 },
-											{ "x": 20, "y": 25 },
-											{ "x": 30, "y": 45 },
-											{ "x": 40, "y": 67 },
-											{ "x": 100, "y": 88 }
+											{ "x": 5, "y": 2 },
+											{ "x": 10, "y": 3 },
+											{ "x": 15, "y": 2 },
+											{ "x": 20, "y": 1 },
+											{ "x": 25, "y": 4 },
+											{ "x": 30, "y": 2 },
+											{ "x": 35, "y": 5 }
 										]
 									},
 									{
 										"points": [
-											{ "x": 2, "y": 55 },
-											{ "x": 8, "y": 40 },
-											{ "x": 15, "y": 20 },
-											{ "x": 30, "y": 75 },
-											{ "x": 40, "y": 30 },
-											{ "x": 100, "y": 50 }
+											{ "x": 5, "y": 1 },
+											{ "x": 10, "y": 1 },
+											{ "x": 15, "y": 1 },
+											{ "x": 20, "y": 4 },
+											{ "x": 25, "y": 3 },
+											{ "x": 30, "y": 2 },
+											{ "x": 35, "y": 1 }
+										]
+									},
+									{
+										"points": [
+											{ "x": 5, "y": 5 },
+											{ "x": 10, "y": 4 },
+											{ "x": 15, "y": 3 },
+											{ "x": 20, "y": 2 },
+											{ "x": 25, "y": 1 },
+											{ "x": 30, "y": 2 },
+											{ "x": 35, "y": 5 }
 										]
 									}
 								]
@@ -79,6 +74,11 @@ sap.ui.define(['sap/ui/core/mvc/Controller',
 			},
 
 			handleCalendarSelect: function (oEvent) {
+				var oCalendar=this.byId("Calendar");
+				var oText = this.byId("selectedDate");
+				var oDate=oCalendar.getSelectedDates()[0].getStartDate();
+				var sDate=this.oFormatYyyymmdd.format(oDate);
+				oText.setProperty("text",sDate);
 				if (sCurrentBreakpoint === "S") {
 					oDynamicSideView.toggle();
 				} else {
@@ -91,7 +91,9 @@ sap.ui.define(['sap/ui/core/mvc/Controller',
 					aSelectedDates = oCalendar.getSelectedDates(),
 					oDate = aSelectedDates[0].getStartDate();
 
-				oText.setText(this.oFormatYyyymmdd.format(oDate));
+				var sDate=this.oFormatYyyymmdd.format(oDate)
+
+				oText.setProperty("text",sDate);
 			},
 
 			handleSelectToday: function () {
