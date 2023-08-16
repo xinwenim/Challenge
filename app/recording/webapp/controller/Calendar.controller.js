@@ -114,18 +114,6 @@ sap.ui.define(['sap/ui/core/mvc/Controller',
 				let rowIndex = oEvent.getSource().getParent().getParent().getId().split("row")[2];
 				this.byId("assignedSolutionProcessFlowTable").setSelectedIndex(Number(rowIndex));
 			}
-// <<<<<<< I558674
-// 			let rowIndex = oEvent.getSource().getParent().getParent().getId().split("row")[2];
-// 			this.byId("assignedSolutionProcessFlowTable").setSelectedIndex(Number(rowIndex));
-// 		},
-// 		_toggleEditMode: function () {
-// 			var bEditable = this.oPageConrollerModel.getProperty("/editable");
-
-// 			this._switchEdit(!bEditable);
-// 			this.oPageConrollerModel.setProperty("/editable", !bEditable);
-// 			this.byId("name").setValueState("None");
-// 			this.oEntityDetailModel.updateBindings(true);
-// 		},
-// 	});
-//   }
-// );
+		});
+	}
+);

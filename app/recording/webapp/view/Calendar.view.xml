@@ -7,7 +7,8 @@
     xmlns:core="sap.ui.core"
     xmlns="sap.m"
     xmlns:f="sap.f"
-    class="viewPadding">
+    class="viewPadding"
+>
     <l:DynamicSideContent
         id="DynamicSideContent"
         class="sapUiDSCExplored"
@@ -97,12 +98,12 @@
             </l:VerticalLayout>
         </l:mainContent>
         <l:sideContent>
-
-         <f:DynamicPage
+            <f:DynamicPage
                 toggleHeaderOnTitleClick="false"
                 showFooter="true"
                 id="SidePanel"
-                busyIndicatorDelay="0">
+                busyIndicatorDelay="0"
+            >
                 <f:title>
                     <f:DynamicPageTitle id="_IDGenDynamicPageTitle1">
                         <f:heading>
@@ -124,184 +125,217 @@
                         </f:navigationActions>
                     </f:DynamicPageTitle>
                 </f:title>
-          
-             <f:content>
-                  <form:Form id="detail"
-                            visible="{= !${viewModel>/isEdit}}">
-                     <VBox id="_IDGenVBox2">
+                <f:content>
+                    <VBox id="_IDGenVBox2">
                         <FlexBox
                             id="_IDGenFlexBox2"
                             direction="Column"
-                            class="sapUiTinyMarginBottom" >
+                            class="sapUiTinyMarginBottom"
+                        >
                             <HBox
                                 id="_IDGenHBox1"
-                                alignItems="Center">
+                                alignItems="Center"
+                            >
                                 <core:Icon
                                     id="_IDGenIcon1"
                                     src="sap-icon://heart"
                                     color="Neutral"
-                                    class="sapUiTinyMarginEnd"/>
+                                    class="sapUiTinyMarginEnd"
+                                />
                                 <Title
                                     id="_IDGenTitle2"
-                                    text="{i18n>general.text.Mind}"/>
+                                    text="{i18n>general.text.Mind}"
+                                />
                             </HBox>
                         </FlexBox>
                         <FlexBox
                             id="_IDGenFlexBox3"
                             direction="Column"
-                            class="sapUiTinyMarginBottom">
+                            class="sapUiTinyMarginBottom"
+                        >
                             <Label
                                 id="_IDGenLabel2"
                                 text="{i18n>general.text.Pressure}:"
-                                tooltip="{i18n>general.text.Pressure}:"/>
+                                tooltip="{i18n>general.text.Pressure}:"
+                            />
                             <Text
                                 id="_IDGenText1"
                                 text="{ID}"
-                                tooltip="Huge"/>
+                                tooltip="Huge"
+                            />
                         </FlexBox>
                         <FlexBox
                             id="_IDGenFlexBox4"
                             direction="Column"
-                            class="sapUiTinyMarginBottom" >
+                            class="sapUiTinyMarginBottom"
+                        >
                             <Label
                                 id="_IDGenLabel3"
                                 text="{i18n>general.text.SleepTime}:"
-                                tooltip="{i18n>general.text.SleepTime}:"/>
+                                tooltip="{i18n>general.text.SleepTime}:"
+                            />
                             <Text
                                 id="_IDGenText2"
                                 text="8h"
-                                tooltip="8h"/>
+                                tooltip="8h"
+                            />
                         </FlexBox>
                         <FlexBox
                             id="_IDGenFlexBox5"
                             direction="Column"
-                            class="sapUiTinyMarginBottom">
+                            class="sapUiTinyMarginBottom"
+                        >
                             <Label
                                 id="_IDGenLabel4"
                                 text="{i18n>general.text.Mood}:"
-                                tooltip="{i18n>general.text.Mood}:"/>
+                                tooltip="{i18n>general.text.Mood}:"
+                            />
                             <Text
                                 id="_IDGenText3"
                                 text="good"
-                                tooltip="good"/>
+                                tooltip="good"
+                            />
                         </FlexBox>
                         <FlexBox
                             id="_IDGenFlexBox6"
                             direction="Column"
-                            class="sapUiTinyMarginBottom">
+                            class="sapUiTinyMarginBottom"
+                        >
                             <HBox
                                 id="_IDGenHBox2"
-                                alignItems="Center">
+                                alignItems="Center"
+                            >
                                 <core:Icon
                                     id="_IDGenIcon2"
                                     src="sap-icon://pool"
                                     color="Neutral"
-                                    class="sapUiTinyMarginEnd"/>
+                                    class="sapUiTinyMarginEnd"
+                                />
                                 <Title
                                     id="_IDGenTitle3"
-                                    text="{i18n>general.text.Health}"/>
+                                    text="{i18n>general.text.Health}"
+                                />
                             </HBox>
                         </FlexBox>
                         <FlexBox
                             id="_IDGenFlexBox7"
                             direction="Column"
-                            class="sapUiTinyMarginBottom">
+                            class="sapUiTinyMarginBottom"
+                        >
                             <Label
                                 id="_IDGenLabel5"
                                 text="{i18n>general.text.MotionTime}:"
-                                tooltip="{i18n>general.text.MotionTime}:"/>
+                                tooltip="{i18n>general.text.MotionTime}:"
+                            />
                             <Text
                                 id="_IDGenText4"
                                 text="0.5h"
-                                tooltip="0.5h"/>
+                                tooltip="0.5h"
+                            />
                         </FlexBox>
                         <FlexBox
                             id="_IDGenFlexBox8"
                             direction="Column"
-                            class="sapUiTinyMarginBottom">
+                            class="sapUiTinyMarginBottom"
+                        >
                             <Label
                                 id="_IDGenLabel6"
                                 text="{i18n>general.text.Height}:"
-                                tooltip="{i18n>general.text.Height}:"/>
+                                tooltip="{i18n>general.text.Height}:"
+                            />
                             <Text
                                 id="_IDGenText5"
                                 text="166cm"
-                                tooltip="166cm"/>
+                                tooltip="166cm"
+                            />
                         </FlexBox>
                         <FlexBox
                             id="_IDGenFlexBox9"
                             direction="Column"
-                            class="sapUiTinyMarginBottom">
+                            class="sapUiTinyMarginBottom"
+                        >
                             <Label
                                 id="_IDGenLabel7"
                                 text="{i18n>general.text.Weight}:"
-                                tooltip="{i18n>general.text.Weight}:"/>
+                                tooltip="{i18n>general.text.Weight}:"
+                            />
                             <Text
                                 id="_IDGenText6"
                                 text="50kg"
-                                tooltip="50kg" />
+                                tooltip="50kg"
+                            />
                         </FlexBox>
                         <FlexBox
                             id="_IDGenFlexBox10"
                             direction="Column"
-                            class="sapUiTinyMarginBottom">
+                            class="sapUiTinyMarginBottom"
+                        >
                             <HBox
                                 id="_IDGenHBox3"
-                                alignItems="Center">
+                                alignItems="Center"
+                            >
                                 <core:Icon
                                     id="_IDGenIcon3"
                                     src="sap-icon://meal"
                                     color="Neutral"
-                                    class="sapUiTinyMarginEnd"/>
+                                    class="sapUiTinyMarginEnd"
+                                />
                                 <Title
                                     id="_IDGenTitle4"
-                                    text="{i18n>general.text.Hunger}"/>
+                                    text="{i18n>general.text.Hunger}"
+                                />
                             </HBox>
                         </FlexBox>
                         <FlexBox
                             id="_IDGenFlexBox11"
                             direction="Column"
-                            class="sapUiTinyMarginBottom">
+                            class="sapUiTinyMarginBottom"
+                        >
                             <Label
                                 id="_IDGenLabel8"
                                 text="{i18n>general.text.JunkFood}:"
-                                tooltip="{i18n>general.text.JunkFood}:"/>
+                                tooltip="{i18n>general.text.JunkFood}:"
+                            />
                             <Text
                                 id="_IDGenText7"
                                 text="0.5h"
-                                tooltip="0.5h"/>
+                                tooltip="0.5h"
+                            />
                         </FlexBox>
                         <FlexBox
                             id="_IDGenFlexBox12"
                             direction="Column"
-                            class="sapUiTinyMarginBottom">
+                            class="sapUiTinyMarginBottom"
+                        >
                             <Label
                                 id="_IDGenLabel9"
                                 text="{i18n>general.text.Fruit}:"
-                                tooltip="{i18n>general.text.Fruit}:"/>
+                                tooltip="{i18n>general.text.Fruit}:"
+                            />
                             <Text
                                 id="_IDGenText8"
                                 text="166cm"
-                                tooltip="166cm" />
+                                tooltip="166cm"
+                            />
                         </FlexBox>
                         <FlexBox
                             id="_IDGenFlexBox13"
                             direction="Column"
-                            class="sapUiTinyMarginBottom">
+                            class="sapUiTinyMarginBottom"
+                        >
                             <Label
                                 id="_IDGenLabel10"
                                 text="{i18n>general.text.Water}:"
-                                tooltip="{i18n>general.text.Water}:"/>
+                                tooltip="{i18n>general.text.Water}:"
+                            />
                             <Text
                                 id="_IDGenText9"
                                 text="50kg"
-                                tooltip="50kg" />
+                                tooltip="50kg"
+                            />
                         </FlexBox>
-                     </VBox>
-                  </form:Form>
-                 
-             </f:content>
-
+                    </VBox>
+                </f:content>
                 <f:footer>
                     <OverflowToolbar id="_IDGenOverflowToolbar1">
                         <ToolbarSpacer id="_IDGenToolbarSpacer1" />
@@ -309,15 +343,16 @@
                             text="{i18n>general.action.submit}"
                             type="Emphasized"
                             id="submitBtn"
-                            press="onSubmitButtonPress"/>
+                            press="onSubmitButtonPress"
+                        />
                         <Button
                             text="{i18n>general.action.close}"
                             id="closeBtn"
-                            press="handleClose"/>
+                            press="handleClose"
+                        />
                     </OverflowToolbar>
                 </f:footer>
-                
-         </f:DynamicPage>
+            </f:DynamicPage>
         </l:sideContent>
     </l:DynamicSideContent>
 </mvc:View>
