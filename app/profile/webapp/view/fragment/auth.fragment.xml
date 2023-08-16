@@ -21,7 +21,7 @@
             validateFieldGroup=".onValidateFieldGroup"
         >
             <form:content>
-                <Label text="Input your MTBI type" />
+                <Label text="Input your MBTI type" />
                 <Input
                     id="idInputType"
                     required="true"
