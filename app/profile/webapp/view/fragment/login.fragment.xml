@@ -9,7 +9,7 @@
 >
     <Dialog
         id="idLoginDia"
-        title="Welcome!Do you already know your MBTI"
+        title="Welcome"
         draggable="true"
         beforeOpen=".onBeforeDialogOpen"
         afterClose=".onAfterLoginClose"
