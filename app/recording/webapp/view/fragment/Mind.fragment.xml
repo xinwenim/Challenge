@@ -1,0 +1,15 @@
+<core:FragmentDefinition xmlns="sap.m"
+    id="recording.view.fragment.Mind"
+    controllerName="recording.controller.Calendar"
+  xmlns:core="sap.ui.core">
+  <ResponsivePopover class="sapUiPopupWithPadding"
+    showHeader="false"
+    id="MindIcon">
+    <content>
+      <Text id ="MindIconText"
+      text="{i18n>general.text.chooseBPGDescription}"
+        tooltip="{i18n>general.text.chooseBPGDescription}"
+        width="30rem"/>
+    </content>
+  </ResponsivePopover>
+</core:FragmentDefinition>

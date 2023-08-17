@@ -18,40 +18,40 @@ sap.ui.define(['sap/ui/core/mvc/Controller',
 					{
 						"multiline": [
 							{
-								"leftBottomLabel": "20 Aug",
-								"rightBottomLabel": "27 Aug",
+								"leftBottomLabel": "12 Aug",
+								"rightBottomLabel": "18 Aug",
 								"lines": [
 									{
 										"points": [
-											{ "x": 5, "y": 2 },
-											{ "x": 10, "y": 3 },
-											{ "x": 15, "y": 2 },
-											{ "x": 20, "y": 1 },
-											{ "x": 25, "y": 4 },
-											{ "x": 30, "y": 2 },
-											{ "x": 35, "y": 5 }
+											{ "x": 5, "y": 90 },
+											{ "x": 10, "y": 70 },
+											{ "x": 15, "y": 75 },
+											{ "x": 20, "y": 65 },
+											{ "x": 25, "y": 70 },
+											{ "x": 30, "y": 95 },
+											{ "x": 35, "y": 100 }
 										]
 									},
 									{
 										"points": [
-											{ "x": 5, "y": 1 },
-											{ "x": 10, "y": 1 },
-											{ "x": 15, "y": 1 },
-											{ "x": 20, "y": 4 },
-											{ "x": 25, "y": 3 },
-											{ "x": 30, "y": 2 },
-											{ "x": 35, "y": 1 }
+											{ "x": 5, "y": 50 },
+											{ "x": 10, "y": 90 },
+											{ "x": 15, "y": 85 },
+											{ "x": 20, "y": 70 },
+											{ "x": 25, "y": 70 },
+											{ "x": 30, "y": 90 },
+											{ "x": 35, "y": 50 }
 										]
 									},
 									{
 										"points": [
-											{ "x": 5, "y": 5 },
-											{ "x": 10, "y": 4 },
-											{ "x": 15, "y": 3 },
-											{ "x": 20, "y": 2 },
-											{ "x": 25, "y": 1 },
-											{ "x": 30, "y": 2 },
-											{ "x": 35, "y": 5 }
+											{ "x": 5, "y": 30 },
+											{ "x": 10, "y": 80 },
+											{ "x": 15, "y": 80 },
+											{ "x": 20, "y": 100 },
+											{ "x": 25, "y": 80 },
+											{ "x": 30, "y": 80 },
+											{ "x": 35, "y": 20 }
 										]
 									}
 								]
@@ -72,7 +72,17 @@ sap.ui.define(['sap/ui/core/mvc/Controller',
 					oDynamicSideView.setShowSideContent(false);
 				}
 			},
+            onPlaceholderPressed: function () {
+                this.MindDialog();
+            },
 
+            MindDialog: function () {
+                if (!this.tDialog) {
+                    this.tDialog = this.loadFragment({
+                        name: "recording.view.fragment.Mind"
+                    });
+                }
+            },
 			handleCalendarSelect: function (oEvent) {
 				var oCalendar=this.byId("Calendar");
 				var oText = this.byId("selectedDate");
