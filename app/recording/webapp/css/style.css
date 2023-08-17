@@ -7,3 +7,6 @@
 .sapUiCal:not(.sapUiCalInt)>.sapUiCalHead {
     max-width: 70rem;
 }
+.assignedBusinessScenario {
+	margin-left: 3px;
+}
