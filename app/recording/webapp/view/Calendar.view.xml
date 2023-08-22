@@ -24,11 +24,6 @@
                     id="_IDGenFlexBox1"
                     direction="Column"
                 >
-                    <Button
-                        id="_IDGenButton1"
-                        press="handleSelectToday"
-                        text="Select Today"
-                    />
                     <l:HorizontalLayout id="_IDGenHorizontalLayout1">
                         <Label
                             id="_IDGenLabel1"
@@ -69,43 +64,43 @@
                                     <mc:points>
                                         <mc:InteractiveLineChartPoint
                                             id="_IDGenInteractiveLineChartPoint8"
-                                            value="33.1"
+                                            value="90"
                                             label="Mon"
                                             color="Error"
                                         />
                                         <mc:InteractiveLineChartPoint
                                             id="_IDGenInteractiveLineChartPoint9"
-                                            value="12"
+                                            value="70"
                                             label="Tue"
                                             color="Error"
                                         />
                                         <mc:InteractiveLineChartPoint
                                             id="_IDGenInteractiveLineChartPoint10"
-                                            value="51.4"
+                                            value="75"
                                             label="Wed"
                                             color="Error"
                                         />
                                         <mc:InteractiveLineChartPoint
                                             id="_IDGenInteractiveLineChartPoint11"
-                                            value="52"
+                                            value="65"
                                             label="Thu"
                                             color="Error"
                                         />
                                         <mc:InteractiveLineChartPoint
                                             id="_IDGenInteractiveLineChartPoint12"
-                                            value="69.9"
+                                            value="70"
                                             label="Fri"
                                             color="Error"
                                         />
                                         <mc:InteractiveLineChartPoint
                                             id="_IDGenInteractiveLineChartPoint13"
-                                            value="0.9"
+                                            value="95"
                                             label="Sat"
                                             color="Error"
                                         />
                                         <mc:InteractiveLineChartPoint
                                             id="_IDGenInteractiveLineChartPoint14"
-                                            value="0.9"
+                                            value="100"
                                             label="Sun"
                                             color="Error"
                                         />
@@ -117,43 +112,43 @@
                                     <mc:points>
                                         <mc:InteractiveLineChartPoint
                                             id="_IDGenInteractiveLineChartPoint1"
-                                            value="33.1"
+                                            value="50"
                                             label="Mon"
                                             color="Good"
                                         />
                                         <mc:InteractiveLineChartPoint
                                             id="_IDGenInteractiveLineChartPoint2"
-                                            value="12"
+                                            value="90"
                                             label="Tue"
                                             color="Good"
                                         />
                                         <mc:InteractiveLineChartPoint
                                             id="_IDGenInteractiveLineChartPoint3"
-                                            value="51.4"
+                                            value="85"
                                             label="Wed"
                                             color="Good"
                                         />
                                         <mc:InteractiveLineChartPoint
                                             id="_IDGenInteractiveLineChartPoint4"
-                                            value="52"
+                                            value="70"
                                             label="Thu"
                                             color="Good"
                                         />
                                         <mc:InteractiveLineChartPoint
                                             id="_IDGenInteractiveLineChartPoint5"
-                                            value="69.9"
+                                            value="70"
                                             label="Fri"
                                             color="Good"
                                         />
                                         <mc:InteractiveLineChartPoint
                                             id="_IDGenInteractiveLineChartPoint6"
-                                            value="0.9"
+                                            value="90"
                                             label="Sat"
                                             color="Good"
                                         />
                                         <mc:InteractiveLineChartPoint
                                             id="_IDGenInteractiveLineChartPoint7"
-                                            value="0.9"
+                                            value="50"
                                             label="Sun"
                                             color="Good"
                                         />
@@ -165,43 +160,43 @@
                                     <mc:points>
                                         <mc:InteractiveLineChartPoint
                                             id="_IDGenInteractiveLineChartPoint15"
-                                            value="33.1"
+                                            value="30"
                                             label="Mon"
                                             color="Critical"
                                         />
                                         <mc:InteractiveLineChartPoint
                                             id="_IDGenInteractiveLineChartPoint16"
-                                            value="12"
+                                            value="80"
                                             label="Tue"
                                             color="Critical"
                                         />
                                         <mc:InteractiveLineChartPoint
                                             id="_IDGenInteractiveLineChartPoint17"
-                                            value="51.4"
+                                            value="80"
                                             label="Wed"
                                             color="Critical"
                                         />
                                         <mc:InteractiveLineChartPoint
                                             id="_IDGenInteractiveLineChartPoint18"
-                                            value="52"
+                                            value="100"
                                             label="Thu"
                                             color="Critical"
                                         />
                                         <mc:InteractiveLineChartPoint
                                             id="_IDGenInteractiveLineChartPoint19"
-                                            value="69.9"
+                                            value="80"
                                             label="Fri"
                                             color="Critical"
                                         />
                                         <mc:InteractiveLineChartPoint
                                             id="_IDGenInteractiveLineChartPoint20"
-                                            value="0.9"
+                                            value="80"
                                             label="Sat"
                                             color="Critical"
                                         />
                                         <mc:InteractiveLineChartPoint
                                             id="_IDGenInteractiveLineChartPoint21"
-                                            value="0.9"
+                                            value="20"
                                             label="Sun"
                                             color="Critical"
                                         />
