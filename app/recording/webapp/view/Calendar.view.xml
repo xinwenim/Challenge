@@ -45,7 +45,7 @@
                 <Panel
                     id="_IDGenPanel1"
                     headerText="Mind · Health · Hunger"
-                    height="10rem"
+                    height="15rem"
                     width="70rem"
                 >
                     <l:Grid id="_IDGenGrid1">
