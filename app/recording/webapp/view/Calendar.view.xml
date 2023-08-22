@@ -49,50 +49,166 @@
                 />
                 <Panel
                     id="_IDGenPanel1"
-                    headerText="Measures:  Mind · Health · Hunger"
+                    headerText="Mind · Health · Hunger"
                     height="10rem"
                     width="70rem"
                 >
-                    <l:Grid
-                        id="_IDGenResponsiveFlowLayout1"
-                        defaultSpan="L6 M1 S1"
-                        content="{/multiline}"
-                    >
-                        <mc:LineMicroChart
-                            id="_IDGenLineMicroChart1"
-                            size="L"
-                            color="{color}"
-                            showPoints="true"
-                            width="60rem"
-                            leftBottomLabel="{leftBottomLabel}"
-                            rightBottomLabel="{rightBottomLabel}"
-                            showTopLabels="true"
-                            showBottomLabels="true"
+                    <l:Grid id="_IDGenGrid1">
+                        <FlexBox
+                            id="_fex"
+                            width="25rem"
+                            height="9rem"
+                            alignItems="Stretch"
+                            alignContent="Stretch"
 
-                            lines="{
-							path: 'lines',
-							templateShareable: true
-						}"
                         >
-                            <mc:lines>
-                                <mc:LineMicroChartLine
-                                    id="_IDGenLineMicroChartLine1"
-                                    points="{
-								path: 'points',
-								templateShareable: true
-							}"
-                                    color="{color}"
-                                    showPoints="{showPoints}"
-                                    type="{type}"
+                            <items>
+                                <mc:InteractiveLineChart
+                                    id="_IDGenInteractiveLineChart2"
                                 >
-                                    <mc:LineMicroChartPoint
-                                        id="_IDGenLineMicroChartPoint1"
-                                        x="{x}"
-                                        y="{y}"
-                                    />
-                                </mc:LineMicroChartLine>
-                            </mc:lines>
-                        </mc:LineMicroChart>
+                                    <mc:points>
+                                        <mc:InteractiveLineChartPoint
+                                            id="_IDGenInteractiveLineChartPoint8"
+                                            value="33.1"
+                                            label="Mon"
+                                            color="Error"
+                                        />
+                                        <mc:InteractiveLineChartPoint
+                                            id="_IDGenInteractiveLineChartPoint9"
+                                            value="12"
+                                            label="Tue"
+                                            color="Error"
+                                        />
+                                        <mc:InteractiveLineChartPoint
+                                            id="_IDGenInteractiveLineChartPoint10"
+                                            value="51.4"
+                                            label="Wed"
+                                            color="Error"
+                                        />
+                                        <mc:InteractiveLineChartPoint
+                                            id="_IDGenInteractiveLineChartPoint11"
+                                            value="52"
+                                            label="Thu"
+                                            color="Error"
+                                        />
+                                        <mc:InteractiveLineChartPoint
+                                            id="_IDGenInteractiveLineChartPoint12"
+                                            value="69.9"
+                                            label="Fri"
+                                            color="Error"
+                                        />
+                                        <mc:InteractiveLineChartPoint
+                                            id="_IDGenInteractiveLineChartPoint13"
+                                            value="0.9"
+                                            label="Sat"
+                                            color="Error"
+                                        />
+                                        <mc:InteractiveLineChartPoint
+                                            id="_IDGenInteractiveLineChartPoint14"
+                                            value="0.9"
+                                            label="Sun"
+                                            color="Error"
+                                        />
+                                    </mc:points>
+                                </mc:InteractiveLineChart>
+                                <mc:InteractiveLineChart
+                                    id="_IDGenInteractiveLineChart1"
+                                >
+                                    <mc:points>
+                                        <mc:InteractiveLineChartPoint
+                                            id="_IDGenInteractiveLineChartPoint1"
+                                            value="33.1"
+                                            label="Mon"
+                                            color="Good"
+                                        />
+                                        <mc:InteractiveLineChartPoint
+                                            id="_IDGenInteractiveLineChartPoint2"
+                                            value="12"
+                                            label="Tue"
+                                            color="Good"
+                                        />
+                                        <mc:InteractiveLineChartPoint
+                                            id="_IDGenInteractiveLineChartPoint3"
+                                            value="51.4"
+                                            label="Wed"
+                                            color="Good"
+                                        />
+                                        <mc:InteractiveLineChartPoint
+                                            id="_IDGenInteractiveLineChartPoint4"
+                                            value="52"
+                                            label="Thu"
+                                            color="Good"
+                                        />
+                                        <mc:InteractiveLineChartPoint
+                                            id="_IDGenInteractiveLineChartPoint5"
+                                            value="69.9"
+                                            label="Fri"
+                                            color="Good"
+                                        />
+                                        <mc:InteractiveLineChartPoint
+                                            id="_IDGenInteractiveLineChartPoint6"
+                                            value="0.9"
+                                            label="Sat"
+                                            color="Good"
+                                        />
+                                        <mc:InteractiveLineChartPoint
+                                            id="_IDGenInteractiveLineChartPoint7"
+                                            value="0.9"
+                                            label="Sun"
+                                            color="Good"
+                                        />
+                                    </mc:points>
+                                </mc:InteractiveLineChart>
+                                <mc:InteractiveLineChart
+                                    id="_IDGenInteractiveLineChart3"
+                                >
+                                    <mc:points>
+                                        <mc:InteractiveLineChartPoint
+                                            id="_IDGenInteractiveLineChartPoint15"
+                                            value="33.1"
+                                            label="Mon"
+                                            color="Critical"
+                                        />
+                                        <mc:InteractiveLineChartPoint
+                                            id="_IDGenInteractiveLineChartPoint16"
+                                            value="12"
+                                            label="Tue"
+                                            color="Critical"
+                                        />
+                                        <mc:InteractiveLineChartPoint
+                                            id="_IDGenInteractiveLineChartPoint17"
+                                            value="51.4"
+                                            label="Wed"
+                                            color="Critical"
+                                        />
+                                        <mc:InteractiveLineChartPoint
+                                            id="_IDGenInteractiveLineChartPoint18"
+                                            value="52"
+                                            label="Thu"
+                                            color="Critical"
+                                        />
+                                        <mc:InteractiveLineChartPoint
+                                            id="_IDGenInteractiveLineChartPoint19"
+                                            value="69.9"
+                                            label="Fri"
+                                            color="Critical"
+                                        />
+                                        <mc:InteractiveLineChartPoint
+                                            id="_IDGenInteractiveLineChartPoint20"
+                                            value="0.9"
+                                            label="Sat"
+                                            color="Critical"
+                                        />
+                                        <mc:InteractiveLineChartPoint
+                                            id="_IDGenInteractiveLineChartPoint21"
+                                            value="0.9"
+                                            label="Sun"
+                                            color="Critical"
+                                        />
+                                    </mc:points>
+                                </mc:InteractiveLineChart>
+                            </items>
+                        </FlexBox>
                     </l:Grid>
                 </Panel>
             </l:VerticalLayout>
@@ -146,10 +262,12 @@
                                     id="_IDGenTitle2"
                                     text="{i18n>general.text.Mind}"
                                 />
-                             <core:Icon id="_IDGenIcon4"
-                             src="sap-icon://message-information"
-                              class="assignedBusinessScenario"
-                              press="onPlaceholderPressed"/>
+                                <core:Icon
+                                    id="_IDGenIcon4"
+                                    src="sap-icon://message-information"
+                                    class="assignedBusinessScenario"
+                                    press="onPlaceholderPressed"
+                                />
                             </HBox>
                         </FlexBox>
                         <FlexBox
@@ -162,11 +280,7 @@
                                 text="{i18n>general.text.Pressure}:"
                                 tooltip="{i18n>general.text.Pressure}:"
                             />
-                            <Text
-                                id="_IDGenText1"
-                                text="50%"
-                                tooltip="50%"
-                            />
+                            <Input id="pressVal" />
                         </FlexBox>
                         <FlexBox
                             id="_IDGenFlexBox4"
@@ -178,11 +292,7 @@
                                 text="{i18n>general.text.SleepTime}:"
                                 tooltip="{i18n>general.text.SleepTime}:"
                             />
-                            <Text
-                                id="_IDGenText2"
-                                text="8h"
-                                tooltip="8h"
-                            />
+                            <Input id="sleepVal" />
                         </FlexBox>
                         <FlexBox
                             id="_IDGenFlexBox5"
@@ -194,11 +304,7 @@
                                 text="{i18n>general.text.Mood}:"
                                 tooltip="{i18n>general.text.Mood}:"
                             />
-                            <Text
-                                id="_IDGenText3"
-                                text="5(Excellent)"
-                                tooltip="5(Excellent)"
-                            />
+                            <Input id="moodVal" />
                         </FlexBox>
                         <FlexBox
                             id="_IDGenFlexBox6"
@@ -231,11 +337,7 @@
                                 text="{i18n>general.text.MotionTime}:"
                                 tooltip="{i18n>general.text.MotionTime}:"
                             />
-                            <Text
-                                id="_IDGenText4"
-                                text="120min"
-                                tooltip="120min"
-                            />
+                            <Input id="motionVal" />
                         </FlexBox>
                         <FlexBox
                             id="_IDGenFlexBox8"
@@ -247,11 +349,7 @@
                                 text="{i18n>general.text.Height}:"
                                 tooltip="{i18n>general.text.Height}:"
                             />
-                            <Text
-                                id="_IDGenText5"
-                                text="1.7m"
-                                tooltip="1.7m"
-                            />
+                            <Input id="heightVal" />
                         </FlexBox>
                         <FlexBox
                             id="_IDGenFlexBox9"
@@ -263,11 +361,7 @@
                                 text="{i18n>general.text.Weight}:"
                                 tooltip="{i18n>general.text.Weight}:"
                             />
-                            <Text
-                                id="_IDGenText6"
-                                text="75kg"
-                                tooltip="75kg"
-                            />
+                            <Input id="weightVal" />
                         </FlexBox>
                         <FlexBox
                             id="_IDGenFlexBox10"
@@ -300,11 +394,7 @@
                                 text="{i18n>general.text.JunkFood}:"
                                 tooltip="{i18n>general.text.JunkFood}:"
                             />
-                            <Text
-                                id="_IDGenText7"
-                                text="0 times"
-                                tooltip="0 times"
-                            />
+                            <Input id="junkFoodVal" />
                         </FlexBox>
                         <FlexBox
                             id="_IDGenFlexBox12"
@@ -316,11 +406,7 @@
                                 text="{i18n>general.text.Fruit}:"
                                 tooltip="{i18n>general.text.Fruit}:"
                             />
-                            <Text
-                                id="_IDGenText8"
-                                text="2 times"
-                                tooltip="2 times"
-                            />
+                            <Input id="fruitVal" />
                         </FlexBox>
                         <FlexBox
                             id="_IDGenFlexBox13"
@@ -332,16 +418,12 @@
                                 text="{i18n>general.text.Water}:"
                                 tooltip="{i18n>general.text.Water}:"
                             />
-                            <Text
-                                id="_IDGenText9"
-                                text="3 times"
-                                tooltip="3 times"
-                            />
+                            <Input id="waterVal" />
                         </FlexBox>
                     </VBox>
                 </f:content>
                 <f:footer>
-                    <OverflowToolbar id="_IDGenOverflowToolbar1">
+                    <OverflowToolbar id="idOverFlowToolBar">
                         <ToolbarSpacer id="_IDGenToolbarSpacer1" />
                         <Button
                             text="{i18n>general.action.submit}"
