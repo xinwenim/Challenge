@@ -83,7 +83,8 @@ sap.ui.define(['sap/ui/core/mvc/Controller',
                     });
                 }
             },
-			handleCalendarSelect: function (oEvent) {
+			handleCalendarSelect: function () {
+				var oToday=new Date();
 				var oCalendar=this.byId("Calendar");
 				var oText = this.byId("selectedDate");
 				var oDate=oCalendar.getSelectedDates()[0].getStartDate();
@@ -93,6 +94,19 @@ sap.ui.define(['sap/ui/core/mvc/Controller',
 					oDynamicSideView.toggle();
 				} else {
 					oDynamicSideView.setShowSideContent(true);
+				}
+				if (oToday.getDate()>oDate.getDate()){
+					this.setRandomDataForSidePanel();
+					this.byId("idOverFlowToolBar").setProperty("visible",false);
+					this.changePanelStatus(false);
+				}
+				else if (oToday.getDate()==oDate.getDate()){
+					this.setRandomDataForSidePanel();
+					this.byId("idOverFlowToolBar").setProperty("visible",true);
+					this.changePanelStatus(true);
+				}
+				else{
+					oDynamicSideView.setShowSideContent(false);
 				}
 			},
 
@@ -114,15 +128,44 @@ sap.ui.define(['sap/ui/core/mvc/Controller',
 				this._updateText(oCalendar);
 			},
 			onClickCalendarButtonPresss(oEvent) {
-				let mAssignedSPF = oEvent.getSource().getBindingContext("assignedSolutionProcessFlow").getObject();
-				// 这一行是获取数据
-				this.getOwnerComponent().getModel("replaceSPFVersion").setProperty("/SPStatus", this.oEntityDetailModel.getProperty("/status"));
-				this.getOwnerComponent().bReload = false;
-				if (this.getOwnerComponent().getModel().getData().layout === "OneColumn") {
-					this.setSidePanelData(mAssignedSPF);
-				}
-				let rowIndex = oEvent.getSource().getParent().getParent().getId().split("row")[2];
-				this.byId("assignedSolutionProcessFlowTable").setSelectedIndex(Number(rowIndex));
+				// let mAssignedSPF = oEvent.getSource().getBindingContext("assignedSolutionProcessFlow").getObject();
+				// // 这一行是获取数据
+				// this.getOwnerComponent().getModel("replaceSPFVersion").setProperty("/SPStatus", this.oEntityDetailModel.getProperty("/status"));
+				// this.getOwnerComponent().bReload = false;
+				// if (this.getOwnerComponent().getModel().getData().layout === "OneColumn") {
+				// 	this.setSidePanelData(mAssignedSPF);
+				// }
+				// let rowIndex = oEvent.getSource().getParent().getParent().getId().split("row")[2];
+				// this.byId("assignedSolutionProcessFlowTable").setSelectedIndex(Number(rowIndex));
+			},
+
+			setRandomDataForSidePanel:function () {
+				this.byId("pressVal").setValue((Math.floor(101*Math.random())).toString()+"%");
+				this.byId("sleepVal").setValue((Math.floor(25*Math.random())).toString()+"h");
+				this.byId("moodVal").setValue(Math.floor(5*Math.random()+1).toString());
+				this.byId("motionVal").setValue((Math.floor(121*Math.random())).toString()+"min");
+				this.byId("heightVal").setValue("1.8m");
+				this.byId("weightVal").setValue((8+Math.random().toFixed(2)).toString()+"kg");
+				this.byId("junkFoodVal").setValue(Math.floor(6*Math.random()).toString()+"time/day");
+				this.byId("fruitVal").setValue(Math.floor(6*Math.random()).toString()+"time/day");
+				this.byId("waterVal").setValue(Math.floor(11*Math.random()).toString()+"cup/day");
+			},
+
+			changePanelStatus:function (oCase) {
+				this.byId("pressVal").setEditable(oCase);
+				this.byId("sleepVal").setEditable(oCase);
+				this.byId("moodVal").setEditable(oCase);
+				this.byId("motionVal").setEditable(oCase);
+				this.byId("heightVal").setEditable(oCase);
+				this.byId("weightVal").setEditable(oCase);
+				this.byId("junkFoodVal").setEditable(oCase);
+				this.byId("fruitVal").setEditable(oCase);
+				this.byId("waterVal").setEditable(oCase);
+			},
+
+			onSubmitButtonPress:function () {
+				this.changePanelStatus(false);
+				this.byId("idOverFlowToolBar").setProperty("visible",false);
 			}
 		});
 	}
