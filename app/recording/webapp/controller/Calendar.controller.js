@@ -89,18 +89,19 @@ sap.ui.define(['sap/ui/core/mvc/Controller',
 				var oText = this.byId("selectedDate");
 				var oDate=oCalendar.getSelectedDates()[0].getStartDate();
 				var sDate=this.oFormatYyyymmdd.format(oDate);
+				var sToday=this.oFormatYyyymmdd.format(oToday);
 				oText.setProperty("text",sDate);
 				if (sCurrentBreakpoint === "S") {
 					oDynamicSideView.toggle();
 				} else {
 					oDynamicSideView.setShowSideContent(true);
 				}
-				if (oToday.getDate()>oDate.getDate()){
+				if (sToday>sDate){
 					this.setRandomDataForSidePanel();
 					this.byId("idOverFlowToolBar").setProperty("visible",false);
 					this.changePanelStatus(false);
 				}
-				else if (oToday.getDate()==oDate.getDate()){
+				else if (sToday==sDate){
 					this.setRandomDataForSidePanel();
 					this.byId("idOverFlowToolBar").setProperty("visible",true);
 					this.changePanelStatus(true);
