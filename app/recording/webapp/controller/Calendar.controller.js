@@ -14,51 +14,6 @@ sap.ui.define(['sap/ui/core/mvc/Controller',
 			onInit: function () {
 				oDynamicSideView = this.byId("DynamicSideContent");
 				this.oFormatYyyymmdd = DateFormat.getInstance({ pattern: "yyyy-MM-dd", calendarType: CalendarType.Gregorian });
-				this.oModel = new JSONModel(
-					{
-						"multiline": [
-							{
-								"leftBottomLabel": "12 Aug",
-								"rightBottomLabel": "18 Aug",
-								"lines": [
-									{
-										"points": [
-											{ "x": 5, "y": 90 },
-											{ "x": 10, "y": 70 },
-											{ "x": 15, "y": 75 },
-											{ "x": 20, "y": 65 },
-											{ "x": 25, "y": 70 },
-											{ "x": 30, "y": 95 },
-											{ "x": 35, "y": 100 }
-										]
-									},
-									{
-										"points": [
-											{ "x": 5, "y": 50 },
-											{ "x": 10, "y": 90 },
-											{ "x": 15, "y": 85 },
-											{ "x": 20, "y": 70 },
-											{ "x": 25, "y": 70 },
-											{ "x": 30, "y": 90 },
-											{ "x": 35, "y": 50 }
-										]
-									},
-									{
-										"points": [
-											{ "x": 5, "y": 30 },
-											{ "x": 10, "y": 80 },
-											{ "x": 15, "y": 80 },
-											{ "x": 20, "y": 100 },
-											{ "x": 25, "y": 80 },
-											{ "x": 30, "y": 80 },
-											{ "x": 35, "y": 20 }
-										]
-									}
-								]
-							}
-						]
-					});
-				this.getView().setModel(this.oModel);
 			},
 
 			getRouter: function () {
